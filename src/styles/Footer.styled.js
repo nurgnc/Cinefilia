@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const FooterStyled = styled.footer`
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0 8rem;
-  background-color: ${({ theme }) => theme.colors.navBg};
+  background-color: transparent;
   color: ${({ theme }) => theme.colors.textColor};
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;

@@ -17,13 +17,7 @@ const routes = [
     isNav: true,
   },
   {
-    title: "Login",
-    element: Login,
-    path: "/login",
-    isNav: true,
-  },
-  {
-    title: "Movie Category",
+    title: "Category",
     element: MovieCategory,
     path: "/movie-category",
     isNav: true,
@@ -32,6 +26,12 @@ const routes = [
     title: "Movie Detail",
     element: MovieDetail,
     path: "/movie-category/:movieId",
+    isNav: false,
+  },
+  {
+    title: "Login",
+    element: Login,
+    path: "/login",
     isNav: true,
   },
   {
