@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const FooterStyled = styled.footer`
-  position: absolute;
   width: 100%;
   bottom: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0 8rem;
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.colors.navBg};
   color: ${({ theme }) => theme.colors.textColor};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {

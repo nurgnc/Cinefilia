@@ -6,25 +6,35 @@ export const StyledCard = styled.div`
   align-items: center;
   background-color: #fff;
   border-radius: 15px;
-  width: 90%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   margin: 20px auto;
-  padding: 20px;
+  max-width: 300px;
   flex-direction: column;
-  img {
-    width: 80%;
-  }
-  & > div {
-    flex: 1;
-  }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
   }
 `;
 
-export const ProductLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.textColor};
+export const CardImg = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  & > img {
+    border-radius: 15px 15px 0 0;
+  }
+`;
+
+export const CardBody = styled.div`
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+`;
+export const MovieLink = styled(Link)`
+  color: black;
   text-decoration: none;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
 `;
