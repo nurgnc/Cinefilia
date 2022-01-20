@@ -7,10 +7,14 @@ export const ContainerFluid = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 1200px;
+  width: 1500px;
   max-width: 100%;
   padding: 0.75rem;
   margin: 0 auto;
+`;
+
+export const MarginVertical = styled.div`
+  margin: 4rem auto;
 `;
 
 export const Flex = styled.div`

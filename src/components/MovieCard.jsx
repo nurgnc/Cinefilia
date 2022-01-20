@@ -10,7 +10,7 @@ const MovieCard = ({ data }) => {
   return (
     <StyledCard>
       <CardImg>
-        <img src={`${img_300}${data?.backdrop_path}`} alt={data?.title} />
+        <img src={`${img_300}${data?.poster_path}`} alt={data?.title} />
       </CardImg>
       <CardBody>
         <MovieLink to={`${data?.id}`}>{data?.title}</MovieLink>

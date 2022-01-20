@@ -1,11 +1,12 @@
 import { HomeWrapper } from "../styles/baseStyles";
-import { DiscoverWidget } from "../components";
+import { DiscoverWidget, TrendingWidget } from "../components";
 
 const Home = () => {
   return (
     <>
       <HomeWrapper></HomeWrapper>
       <DiscoverWidget />
+      <TrendingWidget />
     </>
   );
 };

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 //route data
 import routes from "../../router";
 //css
