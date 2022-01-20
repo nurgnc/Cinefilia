@@ -8,5 +8,18 @@ const img_500 = "https://image.tmdb.org/t/p/w500";
 const fetchTrending = (time_window) =>
   base.get(`/trending/movie/${time_window}${apiKey}`);
 const fetchDiscover = () => base.get(`/discover/movie${apiKey}`);
+//movie search
+const fetchSearch = (search) =>
+  base.get(`/search/movie${apiKey}&query=${search}`);
 
-export { fetchTrending, fetchDiscover, img_300, img_500 };
+//movie detail
+const fetchMovie = (movieId) => base.get(`/movie/${movieId}${apiKey}`);
+
+export {
+  fetchTrending,
+  fetchDiscover,
+  fetchSearch,
+  fetchMovie,
+  img_300,
+  img_500,
+};

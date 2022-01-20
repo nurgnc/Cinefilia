@@ -2,13 +2,12 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Nav = styled.nav`
-  position: fixed;
   width: 100%;
-  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: transparent;
+  background: ${({ theme }) => theme.colors.navBg};
+  z-index: 10;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
   }

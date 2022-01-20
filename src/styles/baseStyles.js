@@ -37,9 +37,9 @@ export const Grid = styled.div`
 `;
 
 export const HomeWrapper = styled.div`
-  background-image: url(${bg});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 61rem;
+  // background-image: url(${bg});
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // height: 61rem;
 `;

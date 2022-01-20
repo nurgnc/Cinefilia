@@ -13,7 +13,7 @@ const MovieCard = ({ data }) => {
         <img src={`${img_300}${data?.poster_path}`} alt={data?.title} />
       </CardImg>
       <CardBody>
-        <MovieLink to={`${data?.id}`}>{data?.title}</MovieLink>
+        <MovieLink to={`/movies/${data?.id}`}>{data?.title}</MovieLink>
         <p>{data?.release_date}</p>
       </CardBody>
     </StyledCard>

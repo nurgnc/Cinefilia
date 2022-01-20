@@ -9,7 +9,7 @@ import { settings } from "./SliderSettings";
 //components
 import MovieCard from "./MovieCard";
 //css
-import { Container, MarginVertical } from "../styles/baseStyles";
+import { MarginVertical } from "../styles/baseStyles";
 
 const DiscoverWidget = () => {
   const { isFetching, isLoading, isError, error, data, isFetched, ...query } =
@@ -19,14 +19,12 @@ const DiscoverWidget = () => {
 
   return (
     <MarginVertical>
-      <Container>
-        <h1>Discover</h1>
-        <Slider {...settings}>
-          {data?.map((item) => (
-            <MovieCard data={item} />
-          ))}
-        </Slider>
-      </Container>
+      <h1>Discover</h1>
+      <Slider {...settings}>
+        {data?.map((item) => (
+          <MovieCard data={item} />
+        ))}
+      </Slider>
     </MarginVertical>
   );
 };

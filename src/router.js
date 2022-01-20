@@ -19,13 +19,13 @@ const routes = [
   {
     title: "Category",
     element: MovieCategory,
-    path: "/movie-category",
+    path: "/movies",
     isNav: true,
   },
   {
     title: "Movie Detail",
     element: MovieDetail,
-    path: "/movie-category/:movieId",
+    path: "/movies/:movieId",
     isNav: false,
   },
   {
@@ -44,7 +44,7 @@ const routes = [
     title: "Search",
     path: "/search",
     element: Search,
-    isNav: false,
+    isNav: true,
   },
 ];
 
