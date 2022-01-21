@@ -7,8 +7,8 @@ export const FooterStyled = styled.footer`
   align-items: center;
   justify-content: flex-end;
   padding: 0 8rem;
-  background-color: ${({ theme }) => theme.colors.navBg};
-  color: ${({ theme }) => theme.colors.textColor};
+  background-color: ${({ theme }) => theme.bg};
+  color: ${({ theme }) => theme.textColor};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
@@ -19,7 +19,7 @@ export const FooterStyled = styled.footer`
     margin-right: 15px;
   }
   & > a {
-    color: ${({ theme }) => theme.colors.textColor};
+    color: ${({ theme }) => theme.textColor};
     margin-left: 10px;
   }
 `;

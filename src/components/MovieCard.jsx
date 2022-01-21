@@ -8,7 +8,7 @@ import { img_300 } from "../api";
 
 const MovieCard = ({ data }) => {
   return (
-    <StyledCard>
+    <StyledCard key={data.id}>
       <CardImg>
         <img src={`${img_300}${data?.poster_path}`} alt={data?.title} />
       </CardImg>

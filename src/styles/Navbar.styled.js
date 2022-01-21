@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: ${({ theme }) => theme.colors.navBg};
+  background: ${({ theme }) => theme.bg};
   z-index: 10;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
@@ -20,7 +20,7 @@ export const StyledLink = styled(Link)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.textColor};
+  color: ${({ theme }) => theme.textColor};
   font-weight: 600;
   margin-left: 1.5rem;
   & > span {

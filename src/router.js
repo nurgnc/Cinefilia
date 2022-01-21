@@ -19,7 +19,7 @@ const routes = [
   {
     title: "Category",
     element: MovieCategory,
-    path: "/movies",
+    path: "/movie/:movieCat",
     isNav: true,
   },
   {

@@ -20,7 +20,7 @@ export const MarginVertical = styled.div`
 export const Flex = styled.div`
   display: flex;
   align-items: center;
-  width: 30%;
+  width: 20%;
   & > div,
   & > ul {
     flex: 1;
@@ -33,7 +33,8 @@ export const Flex = styled.div`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(${(props) => props.col}, 5fr);
+  grid-gap: 15px;
 `;
 
 export const HomeWrapper = styled.div`

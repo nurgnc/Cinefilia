@@ -17,7 +17,7 @@ function MovieSearch() {
     console.log("inputValue:::", inputValue);
     if (inputValue === "") return false;
     setUrlQ(inputValue);
-    navigate(`/search?query=${inputValue}`);
+    // navigate(`/search?query=${inputValue}`);
   }
 
   // useEffect(() => {

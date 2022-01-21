@@ -9,7 +9,7 @@ export const CardBody = styled.div`
   width: 300px;
   background: rgb(255, 255, 255, 0.8);
   border-radius: 0 0 15px 15px;
-  bottom: 0;
+  // bottom: 0;
   opacity: 0;
   & > p {
     color: black;

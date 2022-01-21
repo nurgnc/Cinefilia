@@ -1,8 +1,11 @@
-export const theme = {
-  colors: {
-    purple: "#D2D0F5",
+export const themes = {
+  light: {
+    bg: "#BFD8D2",
+    textColor: "#023047",
+  },
+  dark: {
+    bg: "#023047",
     textColor: "#fff",
-    navBg: "#023047",
   },
   mobile: "768px",
 };
