@@ -8,7 +8,7 @@ const setTheme = (theme) => ({
 });
 
 //reducers
-const themeReducer = (theme = "", action) => {
+const themeReducer = (theme = "dark", action) => {
   switch (action.type) {
     case THEME:
       return action.payload;

@@ -1,16 +1,18 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   StyledCard,
   MovieLink,
   CardImg,
   CardBody,
-} from "../styles/Card.styled";
-import { img_300 } from "../api";
+} from '../styles/Card.styled';
+import { img300 } from '../api';
 
-const MovieCard = ({ data }) => {
+function MovieCard({ data }) {
   return (
     <StyledCard key={data.id}>
       <CardImg>
-        <img src={`${img_300}${data?.poster_path}`} alt={data?.title} />
+        <img src={`${img300}${data?.poster_path}`} alt={data?.title} />
       </CardImg>
       <CardBody>
         <MovieLink to={`/movies/${data?.id}`}>{data?.title}</MovieLink>
@@ -18,6 +20,10 @@ const MovieCard = ({ data }) => {
       </CardBody>
     </StyledCard>
   );
+}
+
+MovieCard.propTypes = {
+  data: PropTypes.array,
 };
 
 export default MovieCard;

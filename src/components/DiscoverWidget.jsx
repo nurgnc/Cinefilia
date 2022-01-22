@@ -1,21 +1,21 @@
-import { useQuery } from "react-query";
-import { fetchDiscover } from "../api";
-//slider
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { settings } from "./SliderSettings";
+import React from 'react';
+// packages
+import { useQuery } from 'react-query';
+import Slider from 'react-slick';
+// local import
+import { fetchDiscover } from '../api';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { settings } from './SliderSettings';
+// components
+import MovieCard from './MovieCard';
+// css
+import { MarginVertical } from '../styles/baseStyles';
 
-//components
-import MovieCard from "./MovieCard";
-//css
-import { MarginVertical } from "../styles/baseStyles";
-
-const DiscoverWidget = () => {
-  const { isFetching, isLoading, isError, error, data, isFetched, ...query } =
-    useQuery("discoverMovie", fetchDiscover, {
-      select: (data) => data.data.results,
-    });
+function DiscoverWidget() {
+  const { data } = useQuery('discoverMovie', fetchDiscover, {
+    select: (data) => data.data.results,
+  });
 
   return (
     <MarginVertical>
@@ -27,6 +27,6 @@ const DiscoverWidget = () => {
       </Slider>
     </MarginVertical>
   );
-};
+}
 
 export default DiscoverWidget;

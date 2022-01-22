@@ -1,7 +1,8 @@
-import { FooterStyled } from "../../styles/Footer.styled";
-import { IoMdMail, IoLogoLinkedin, IoLogoGithub } from "react-icons/io";
+import React from 'react';
+import { IoMdMail, IoLogoLinkedin, IoLogoGithub } from 'react-icons/io';
+import { FooterStyled } from '../../styles/Footer.styled';
 
-const Footer = () => {
+function Footer() {
   return (
     <FooterStyled>
       <h6>Contact Me: </h6>
@@ -16,6 +17,6 @@ const Footer = () => {
       </a>
     </FooterStyled>
   );
-};
+}
 
 export default Footer;
