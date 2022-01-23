@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 // packages
 import { useQuery } from 'react-query';
@@ -6,14 +7,14 @@ import Slider from 'react-slick';
 import { fetchDiscover } from '../api';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { settings } from './SliderSettings';
+import settings from './SliderSettings';
 // components
 import MovieCard from './MovieCard';
 // css
 import { MarginVertical } from '../styles/baseStyles';
 
 function DiscoverWidget() {
-  const { data } = useQuery('discoverMovie', fetchDiscover, {
+  const { data: movieData } = useQuery('discoverMovie', fetchDiscover, {
     select: (data) => data.data.results,
   });
 
@@ -21,7 +22,7 @@ function DiscoverWidget() {
     <MarginVertical>
       <h1>Discover</h1>
       <Slider {...settings}>
-        {data?.map((item) => (
+        {movieData?.map((item) => (
           <MovieCard data={item} />
         ))}
       </Slider>

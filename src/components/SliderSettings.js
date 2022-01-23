@@ -1,4 +1,4 @@
-export const settings = {
+const settings = {
   dots: true,
   infinite: true,
   autoplay: false,
@@ -31,3 +31,5 @@ export const settings = {
     },
   ],
 };
+
+export default settings;

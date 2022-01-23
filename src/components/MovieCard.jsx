@@ -23,7 +23,15 @@ function MovieCard({ data }) {
 }
 
 MovieCard.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    release_date: PropTypes.number,
+  }),
+};
+MovieCard.defaultProps = {
+  data: [],
 };
 
 export default MovieCard;

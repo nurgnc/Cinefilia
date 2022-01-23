@@ -1,3 +1,4 @@
+import React from 'react';
 // router
 import { useParams } from 'react-router-dom';
 // query
@@ -9,22 +10,21 @@ import { Container, MarginVertical, Grid } from '../styles/baseStyles';
 function MovieDetail() {
   const { movieId } = useParams();
   const {
-    isError, isLoading, error, data, isFetched, isFetching, ...query
+    data: movieData,
   } = useQuery(['movie', movieId], () => fetchMovie(movieId), {
     select: (data) => data.data,
   });
 
-  console.log(data);
   return (
     <Container>
       <MarginVertical>
         <Grid col={2}>
-          <img src={`${img500}${data?.poster_path}`} alt="" />
+          <img src={`${img500}${movieData?.poster_path}`} alt="" />
           <div>
-            <h1>{data?.title}</h1>
+            <h1>{movieData?.title}</h1>
             <div>
               Türler:
-              {data?.genres.map((genre) => (
+              {movieData?.genres.map((genre) => (
                 <span key={genre.id}>
                   {genre.name}
                   ,
@@ -33,12 +33,12 @@ function MovieDetail() {
               ))}
               <span>
                 &
-                {data?.release_date}
+                {movieData?.release_date}
               </span>
             </div>
             <div>
-              <p>{data?.tagline}</p>
-              <p>{data?.overview}</p>
+              <p>{movieData?.tagline}</p>
+              <p>{movieData?.overview}</p>
             </div>
             <div />
           </div>

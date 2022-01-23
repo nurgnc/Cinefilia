@@ -1,14 +1,14 @@
-//action types
-const TIME_WINDOW = "TIME_WINDOW";
+// action types
+const TIME_WINDOW = 'TIME_WINDOW';
 
-//action creators
-const setTime = (time_window) => ({
+// action creators
+const setTime = (timeWindow) => ({
   type: TIME_WINDOW,
-  payload: time_window,
+  payload: timeWindow,
 });
 
-//reducers
-const timeReducer = (time = "day", action) => {
+// reducers
+const timeReducer = (action, time = 'day') => {
   switch (action.type) {
     case TIME_WINDOW:
       return action.payload;

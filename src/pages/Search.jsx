@@ -1,25 +1,21 @@
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
-//query
-import { useQuery } from "react-query";
-import { fetchSearch } from "../api";
-//components
-import { MovieSearch } from "../components";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+// query
+import { useQuery } from 'react-query';
+import { fetchSearch } from '../api';
+// components
+import { MovieSearch } from '../components';
 
-//icons
-import { RiErrorWarningLine } from "react-icons/ri";
+// icons
+// import { RiErrorWarningLine } from "react-icons/ri";
 
-const Search = () => {
+function Search() {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
-  const search = urlParams.get("query");
+  const search = urlParams.get('query');
 
-  const { isFetching, isLoading, isError, error, data, isFetched, ...query } =
-    useQuery("searchMovie", () => fetchSearch(search), {
-      select: (data) => data.data.results,
-    });
+  const { data: movieData } = useQuery('searchMovie', () => fetchSearch(search), { select: (data) => data.data.results });
 
-  console.log(data);
   // const isSearch = search !== null && !searchCharacter?.length;
 
   // if (isSearch) {
@@ -38,10 +34,10 @@ const Search = () => {
 
   return (
     <>
-      <MovieSearch />
+      <MovieSearch data={movieData} />
       search
     </>
   );
-};
+}
 
 export default Search;

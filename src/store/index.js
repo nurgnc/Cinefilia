@@ -1,7 +1,7 @@
-import { combineReducers, createStore } from "redux";
-import likeReducer from "./likes";
-import timeReducer from "./trendingTime";
-import themeReducer from "./theme";
+import { combineReducers, createStore } from 'redux';
+import likeReducer from './likes';
+import timeReducer from './trendingTime';
+import themeReducer from './theme';
 
 const rootReducer = combineReducers({
   likes: likeReducer,

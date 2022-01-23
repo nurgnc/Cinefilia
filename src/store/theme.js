@@ -1,14 +1,14 @@
-//action types
-const THEME = "THEME";
+// action types
+const THEME = 'THEME';
 
-//action creators
+// action creators
 const setTheme = (theme) => ({
   type: THEME,
   payload: theme,
 });
 
-//reducers
-const themeReducer = (theme = "dark", action) => {
+// reducers
+const themeReducer = (action, theme = 'dark') => {
   switch (action.type) {
     case THEME:
       return action.payload;

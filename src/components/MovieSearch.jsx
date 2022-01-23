@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-//icons
-import { AiOutlineSearch, AiOutlineCloseCircle } from "react-icons/ai";
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+// icons
+import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai';
 
 function MovieSearch() {
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const urlParams = new URLSearchParams(location.search);
-  const [UrlQ, setUrlQ] = useState(urlParams.get("query"));
-  console.log("UrlQ", UrlQ);
+  const [UrlQ, setUrlQ] = useState(urlParams.get('query'));
 
   function formHandler(event) {
     event.preventDefault();
     const inputValue = event.target.name.value;
-    console.log("inputValue:::", inputValue);
-    if (inputValue === "") return false;
+    if (inputValue === '') return;
     setUrlQ(inputValue);
     // navigate(`/search?query=${inputValue}`);
   }
@@ -26,7 +24,15 @@ function MovieSearch() {
   //   }
   // }, [location, UrlQ]);
 
-  const results = <h4>Search movie: "{UrlQ}" </h4>;
+  const results = (
+    <h4>
+      {' '}
+      Search movie:
+      {' '}
+      {UrlQ}
+      {' '}
+    </h4>
+  );
 
   return (
     <>
@@ -42,7 +48,7 @@ function MovieSearch() {
           <button type="submit">
             <AiOutlineSearch size={25} />
           </button>
-          <button type="reset">
+          <button type="button">
             <AiOutlineCloseCircle size={25} />
           </button>
         </div>

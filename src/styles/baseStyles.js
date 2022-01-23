@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import bg from "../assets/img/bg-8.jpg";
+import styled from 'styled-components';
+import bg from '../assets/img/bg-8.jpg';
 
 export const ContainerFluid = styled.div`
   width: 100%;

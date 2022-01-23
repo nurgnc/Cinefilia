@@ -1,15 +1,16 @@
-import { Container, HomeWrapper } from "../styles/baseStyles";
-import { DiscoverWidget, MovieSearch, TrendingWidget } from "../components";
+import React from 'react';
+import { Container, HomeWrapper } from '../styles/baseStyles';
+import { DiscoverWidget, MovieSearch, TrendingWidget } from '../components';
 
-const Home = () => {
+function Home() {
   return (
     <Container>
-      <HomeWrapper></HomeWrapper>
+      <HomeWrapper />
       <MovieSearch />
       <DiscoverWidget />
       <TrendingWidget />
     </Container>
   );
-};
+}
 
 export default Home;

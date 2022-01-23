@@ -1,8 +1,8 @@
-//action types
-const LIKE = "LIKE";
-const UNLIKE = "UNLIKE";
+// action types
+const LIKE = 'LIKE';
+const UNLIKE = 'UNLIKE';
 
-//action creators
+// action creators
 const addLike = (id) => ({
   type: LIKE,
   payload: id,
@@ -13,8 +13,8 @@ const removeLike = (id) => ({
   payload: id,
 });
 
-//reducers
-const likeReducer = (likes = [], action) => {
+// reducers
+const likeReducer = (action, likes = []) => {
   switch (action.type) {
     case LIKE:
       return [action.payload, ...likes];

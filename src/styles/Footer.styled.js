@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const FooterStyled = styled.footer`
+const FooterStyled = styled.footer`
   width: 100%;
   bottom: 0;
   display: flex;
@@ -23,3 +23,5 @@ export const FooterStyled = styled.footer`
     margin-left: 10px;
   }
 `;
+
+export default FooterStyled;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoMdMail, IoLogoLinkedin, IoLogoGithub } from 'react-icons/io';
-import { FooterStyled } from '../../styles/Footer.styled';
+import FooterStyled from '../../styles/Footer.styled';
 
 function Footer() {
   return (

@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
 // routes data
 import routes from './router';
-import { themes } from './styles/themes';
+import themes from './styles/themes';
 import { Navbar, Footer } from './components/base';
 // css
 import GlobalStyles from './styles/Global';
