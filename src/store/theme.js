@@ -8,12 +8,12 @@ const setTheme = (theme) => ({
 });
 
 // reducers
-const themeReducer = (action, theme = 'dark') => {
+const themeReducer = (theme, action) => {
   switch (action.type) {
     case THEME:
       return action.payload;
     default:
-      return theme;
+      return theme === undefined ? 'dark' : theme;
   }
 };
 

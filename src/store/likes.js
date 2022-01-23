@@ -14,15 +14,16 @@ const removeLike = (id) => ({
 });
 
 // reducers
-const likeReducer = (action, likes = []) => {
+const likeReducer = (likes, action) => {
+  const likeData = likes === undefined ? [] : likes;
   switch (action.type) {
     case LIKE:
-      return [action.payload, ...likes];
+      return [action.payload, ...likeData];
 
     case UNLIKE:
-      return likes.filter((item) => item.id !== action.payload);
+      return likeData.filter((item) => item.id !== action.payload);
     default:
-      return likes;
+      return likeData;
   }
 };
 

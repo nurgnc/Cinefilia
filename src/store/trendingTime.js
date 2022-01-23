@@ -8,12 +8,12 @@ const setTime = (timeWindow) => ({
 });
 
 // reducers
-const timeReducer = (action, time = 'day') => {
+const timeReducer = (time, action) => {
   switch (action.type) {
     case TIME_WINDOW:
       return action.payload;
     default:
-      return time;
+      return time === undefined ? 'day' : time;
   }
 };
 
