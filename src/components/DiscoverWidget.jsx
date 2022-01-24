@@ -23,7 +23,7 @@ function DiscoverWidget() {
       <h1>Discover</h1>
       <Slider {...settings}>
         {movieData?.map((item) => (
-          <MovieCard data={item} />
+          <MovieCard movieData={item} />
         ))}
       </Slider>
     </MarginVertical>

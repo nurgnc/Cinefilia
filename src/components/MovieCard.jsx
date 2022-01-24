@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { useQuery } from 'react-query';
+// redux
+import { useDispatch } from 'react-redux';
+import { addLike, removeLike } from '../store/likes';
 import {
   StyledCard,
   MovieLink,
@@ -8,30 +12,37 @@ import {
 } from '../styles/Card.styled';
 import { img300 } from '../api';
 
-function MovieCard({ data }) {
+function MovieCard({ movieData }) {
+  // const { likes } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  // console.log('-------likes', likes);
+
   return (
-    <StyledCard key={data.id}>
+    <StyledCard key={movieData.id}>
       <CardImg>
-        <img src={`${img300}${data?.poster_path}`} alt={data?.title} />
+        <img src={`${img300}${movieData?.poster_path}`} alt={movieData?.title} />
       </CardImg>
       <CardBody>
-        <MovieLink to={`/movies/${data?.id}`}>{data?.title}</MovieLink>
-        <p>{data?.release_date}</p>
+        <MovieLink to={`/movies/${movieData?.id}`}>{movieData?.title}</MovieLink>
+        <p>{movieData?.release_date}</p>
+        <button type="button" onClick={() => dispatch(addLike(movieData.id))}>Like</button>
+        <button type="button" onClick={() => dispatch(removeLike(movieData.id))}>UnLike</button>
       </CardBody>
     </StyledCard>
   );
 }
 
 MovieCard.propTypes = {
-  data: PropTypes.shape({
+  movieData: PropTypes.shape({
     id: PropTypes.number,
     poster_path: PropTypes.string,
     title: PropTypes.string,
-    release_date: PropTypes.number,
+    release_date: PropTypes.string,
   }),
 };
 MovieCard.defaultProps = {
-  data: [],
+  movieData: [],
 };
 
 export default MovieCard;

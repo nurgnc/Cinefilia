@@ -1,7 +1,7 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 // query
 import { useQuery } from 'react-query';
+import { useLocation } from 'react-router-dom';
 import { fetchSearch } from '../api';
 // components
 import { MovieSearch } from '../components';
@@ -12,9 +12,15 @@ import { MovieSearch } from '../components';
 function Search() {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
-  const search = urlParams.get('query');
+  console.log('urlparams', urlParams);
+  const [search] = useState(urlParams.get('name'));
+  const [searchMovie, setSearchMovie] = useState([]);
 
-  const { data: movieData } = useQuery('searchMovie', () => fetchSearch(search), { select: (data) => data.data.results });
+  useQuery(['searchMovie', search], () => {
+    const { data } = fetchSearch(search);
+    setSearchMovie(data);
+    console.log('data', data);
+  });
 
   // const isSearch = search !== null && !searchCharacter?.length;
 
@@ -34,8 +40,12 @@ function Search() {
 
   return (
     <>
-      <MovieSearch data={movieData} />
-      search
+      <MovieSearch />
+      {
+        searchMovie?.map((item) => (
+          <li key={item.id}>{item.title}</li>
+        ))
+      }
     </>
   );
 }

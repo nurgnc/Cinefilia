@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 // redux package
 import { useSelector, useDispatch } from 'react-redux';
@@ -24,14 +24,38 @@ function TrendingWidget() {
 
   const { data: movieData } = useQuery('trendingMovie', () => fetchTrending(time), { select: (data) => data.data.results });
 
+  const [trendingMovie, setTrendingMovie] = useState(movieData);
+  // console.log('time::::', time);
+  // console.log('moviedata', movieData);
+
   return (
     <MarginVertical>
       <h1>Trending</h1>
-      <button type="button" onClick={() => dispatch(setTime('day'))}>Today</button>
-      <button type="button" onClick={() => dispatch(setTime('week'))}>Last Week</button>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch(setTime('day'));
+          setTrendingMovie(movieData);
+          console.log('day');
+        }}
+      >
+        Today
+
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch(setTime('week'));
+          setTrendingMovie(movieData);
+          console.log('week');
+        }}
+      >
+        Last Week
+
+      </button>
       <Slider {...settings}>
-        {movieData?.map((item) => (
-          <MovieCard data={item} />
+        {trendingMovie?.map((item) => (
+          <MovieCard movieData={item} />
         ))}
       </Slider>
     </MarginVertical>

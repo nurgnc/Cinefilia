@@ -15,8 +15,7 @@ function MovieCategory() {
 
   useQuery(['movieCategory', movieCat, page], async () => {
     const { data } = await fetchCat(movieCat, page);
-    const d = data.results;
-    movieData.push(...d);
+    movieData.push(...data.results);
     return movieData;
   });
 
