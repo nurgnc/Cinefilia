@@ -1,9 +1,9 @@
 // query
-// import { useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 // router
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { base, apiKey } from '../api';
+import { base, apiKey, fetchGenres } from '../api';
 // css
 import { Container, MarginVertical, Grid } from '../styles/baseStyles';
 import { MovieCard } from '../components';
@@ -13,26 +13,39 @@ function MovieCategory() {
   const { movieCat } = useParams();
   const [movieData, setMovieData] = useState([]);
 
-  const fetchData = (pageNumber) => base.get(`/movie/${movieCat}${apiKey}&page=${pageNumber}`).then((response) => {
+  const { data: movieGenres } = useQuery(
+    'movieGenres',
+    fetchGenres,
+    {
+      select: (data) => data.data.genres,
+    },
+  );
+
+  const fetchData = (pageNumber, category) => base.get(`/movie/${category}${apiKey}&page=${pageNumber}`).then((response) => {
     const movies = response.data.results;
     console.log('---------movies', movies);
     movieData?.push(...movies);
     console.log('********movieData', movieData);
-    return setMovieData(movieData);
+    setMovieData(movieData);
   });
   console.log(page);
+  console.log(movieCat);
 
-  useEffect(async () => {
+  useEffect(() => {
     console.log('effecte girdi');
-    await fetchData(page);
-  }, [page]);
+    fetchData(page, movieCat);
+  }, [page, movieCat]);
 
   return (
     <Container>
       <MarginVertical>
         <Grid col={4}>
           {movieData?.map((item) => (
-            <MovieCard movieData={item} />
+            <MovieCard
+              movieData={item}
+              genres={movieGenres
+                ?.filter((genre) => item?.genre_ids?.includes(genre.id))}
+            />
           ))}
           <button
             type="button"

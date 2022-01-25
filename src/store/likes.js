@@ -3,9 +3,11 @@ const LIKE = 'LIKE';
 const UNLIKE = 'UNLIKE';
 
 // action creators
-const addLike = (id) => ({
+const addLike = (id, title, img, releaseDate, genre) => ({
   type: LIKE,
-  payload: id,
+  payload: {
+    id, title, img, releaseDate, genre,
+  },
 });
 
 const removeLike = (id) => ({
@@ -19,7 +21,6 @@ const likeReducer = (likes, action) => {
   switch (action.type) {
     case LIKE:
       return [action.payload, ...likeData];
-
     case UNLIKE:
       return likeData.filter((item) => item.id !== action.payload);
     default:
