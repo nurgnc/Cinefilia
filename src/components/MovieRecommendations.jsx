@@ -11,7 +11,7 @@ import MovieCard from './MovieCard';
 // slider local
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import settings from './SliderSettings';
+import { settingsMainSlider } from './SliderSettings';
 
 function MovieRecommendations({ movieId }) {
   const {
@@ -22,7 +22,7 @@ function MovieRecommendations({ movieId }) {
   return (
     <>
       <h2>Recommendations</h2>
-      <Slider {...settings}>
+      <Slider {...settingsMainSlider}>
         {
           movieRecommendations?.map((item) => (
             <MovieCard movieData={item} />

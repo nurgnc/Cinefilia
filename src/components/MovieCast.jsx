@@ -11,7 +11,7 @@ import DetailCard from './DetailCard';
 // slider local
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import settings from './SliderSettings';
+import { settingsActorSlider } from './SliderSettings';
 
 function MovieCast({ movieId }) {
   const {
@@ -22,7 +22,7 @@ function MovieCast({ movieId }) {
   return (
     <>
       <h2>Actors</h2>
-      <Slider {...settings}>
+      <Slider {...settingsActorSlider}>
         {
           // eslint-disable-next-line react/prop-types
           movieCast?.map((cast) => (

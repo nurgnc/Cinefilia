@@ -12,14 +12,13 @@ import { MovieSearch } from '../components';
 function Search() {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
-  console.log('urlparams', urlParams);
   const [search] = useState(urlParams.get('name'));
-  const [searchMovie, setSearchMovie] = useState([]);
+  // const [searchMovie, setSearchMovie] = useState([]);
 
-  useQuery(['searchMovie', search], () => {
-    const { data } = fetchSearch(search);
-    setSearchMovie(data);
-    console.log('data', data);
+  const {
+    data: searchMovie,
+  } = useQuery(['searchMovie', search], () => fetchSearch(search), {
+    select: (data) => data.data.results,
   });
 
   // const isSearch = search !== null && !searchCharacter?.length;

@@ -3,25 +3,19 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 // query
 import { useQuery } from 'react-query';
-import {
-  fetchMovie, fetchCredit,
-  img500,
-} from '../api';
+import { fetchMovie, img500 } from '../api';
 // css
 import { Container, MarginVertical, Grid } from '../styles/baseStyles';
 // components
-import { MovieCast, MovieRecommendations, MovieReviews } from '../components';
+import {
+  MovieCast, MovieRecommendations, MovieReviews, MovieCrew,
+} from '../components';
 
 function MovieDetail() {
   const { movieId } = useParams();
   const {
     data: movieData,
   } = useQuery(['movie', movieId], () => fetchMovie(movieId), {
-    select: (data) => data.data,
-  });
-  const {
-    data: movieCredits,
-  } = useQuery(['movieCredits', movieId], () => fetchCredit(movieId), {
     select: (data) => data.data,
   });
 
@@ -55,17 +49,7 @@ function MovieDetail() {
               <p>{movieData?.overview}</p>
             </div>
             <div>
-              <h3>Crew:</h3>
-              {
-                movieCredits?.crew?.filter((item) => item.department === 'Crew').map((crew) => (
-                  <li>
-                    {crew.name}
-                    ,
-                    {' '}
-                    {crew.department}
-                  </li>
-                ))
-              }
+              <MovieCrew movieId={movieId} />
             </div>
             <div />
           </div>

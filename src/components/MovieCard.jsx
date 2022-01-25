@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
 // import { useQuery } from 'react-query';
 // redux
 import { useDispatch } from 'react-redux';
@@ -19,7 +19,7 @@ function MovieCard({ movieData }) {
   // console.log('-------likes', likes);
 
   return (
-    <StyledCard key={movieData.id}>
+    <StyledCard key={movieData?.id}>
       <CardImg>
         <img src={`${img300}${movieData?.poster_path}`} alt={movieData?.title} />
       </CardImg>
@@ -32,17 +32,5 @@ function MovieCard({ movieData }) {
     </StyledCard>
   );
 }
-
-MovieCard.propTypes = {
-  movieData: PropTypes.shape({
-    id: PropTypes.number,
-    poster_path: PropTypes.string,
-    title: PropTypes.string,
-    release_date: PropTypes.string,
-  }),
-};
-MovieCard.defaultProps = {
-  movieData: [],
-};
 
 export default MovieCard;

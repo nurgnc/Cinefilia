@@ -7,7 +7,7 @@ import Slider from 'react-slick';
 import { fetchDiscover } from '../api';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import settings from './SliderSettings';
+import { settingsMainSlider } from './SliderSettings';
 // components
 import MovieCard from './MovieCard';
 // css
@@ -21,7 +21,7 @@ function DiscoverWidget() {
   return (
     <MarginVertical>
       <h1>Discover</h1>
-      <Slider {...settings}>
+      <Slider {...settingsMainSlider}>
         {movieData?.map((item) => (
           <MovieCard movieData={item} />
         ))}

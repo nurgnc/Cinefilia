@@ -54,3 +54,25 @@ export const MovieLink = styled(Link)`
   font-weight: 700;
   font-size: 20px;
 `;
+
+export const CardReview = styled.div`
+display: flex;
+flex-directions: row;
+justify-content: space-between;
+  align-items: flex-start;
+background-color: #fff;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin: 20px auto;
+`;
+
+export const CardReviewBody = styled.div`
+padding: 10px 15px;
+`;
+
+export const ImgReview = styled.img`
+max-width: 100px;
+height: auto;
+border-radius: 50%;
+padding: 2rem 15px;
+`;

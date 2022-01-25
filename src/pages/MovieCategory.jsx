@@ -13,6 +13,16 @@ function MovieCategory() {
   const { movieCat } = useParams();
   const [movieData, setMovieData] = useState([]);
 
+  // const {
+  //   data: movieCategory,
+  // } = useQuery(['movieCategory', movieCat, page], () => {
+  //   fetchCat(movieCat, page);
+  //   movieData.push(...movieCategory);
+  // }, {
+  //   refetchOnWindowFocus: false,
+  //   select: (data) => data,
+  // });
+
   useQuery(['movieCategory', movieCat, page], async () => {
     const { data } = await fetchCat(movieCat, page);
     movieData.push(...data.results);
@@ -24,7 +34,7 @@ function MovieCategory() {
       <MarginVertical>
         <Grid col={4}>
           {movieData?.map((item) => (
-            <MovieCard data={item} />
+            <MovieCard movieData={item} />
           ))}
           <button
             type="button"

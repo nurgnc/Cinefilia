@@ -1,6 +1,7 @@
 import DiscoverWidget from './DiscoverWidget';
 import DetailCard from './DetailCard';
 import MovieCast from './MovieCast';
+import MovieCrew from './MovieCrew';
 import MovieRecommendations from './MovieRecommendations';
 import MovieReviews from './MovieReviews';
 import MovieCard from './MovieCard';
@@ -13,6 +14,7 @@ export {
   DiscoverWidget,
   DetailCard,
   MovieCast,
+  MovieCrew,
   MovieRecommendations,
   MovieReviews,
   MovieCard,

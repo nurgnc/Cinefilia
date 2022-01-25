@@ -3,10 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // query
 import { useQuery } from 'react-query';
-import { fetchReviews } from '../api';
+import { fetchReviews, img300 } from '../api';
 // css
-// css
-import { Grid } from '../styles/baseStyles';
+import { CardReview, ImgReview, CardReviewBody } from '../styles/Card.styled';
 
 function MovieReviews({ movieId }) {
   const {
@@ -14,18 +13,34 @@ function MovieReviews({ movieId }) {
   } = useQuery(['movieReviews', movieId], () => fetchReviews(movieId), {
     select: (data) => data.data.results,
   });
+  const reviews = movieReviews?.slice(0, 1);
+  // const avatar = console.log(avatar);
+
+  if (Array.isArray(movieReviews) && !movieReviews.length) {
+    return (
+      <>
+        <h2>Reviews</h2>
+        <span>No comments yet...</span>
+      </>
+    );
+  }
   return (
     <>
       <h2>Reviews</h2>
-      <Grid col={2}>
-        {movieReviews?.map((item) => (
-          <Grid col={2}>
-            <div>
-              <img src={item.author_details.avatar_path} alt="" />
-            </div>
-          </Grid>
-        ))}
-      </Grid>
+      {reviews.filter((item) => item.author_details.avatar_path.includes('http')).map((img) => (
+        <ImgReview src={img.author_details.avatar_path.split('/')[0]} alt={img.author} />
+      ))}
+      {reviews?.map((item) => (
+        <CardReview>
+          <div>
+            <ImgReview src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />
+          </div>
+          <CardReviewBody>
+            <h3>{item.author}</h3>
+            <p>{item.content}</p>
+          </CardReviewBody>
+        </CardReview>
+      ))}
     </>
   );
 }

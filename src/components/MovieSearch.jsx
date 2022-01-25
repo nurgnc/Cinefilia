@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 // icons
 import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai';
 // debounce perform
-// import debounce from 'lodash.debounce';
+import debounce from 'lodash.debounce';
 
 function MovieSearch() {
   const location = useLocation();
@@ -15,14 +15,14 @@ function MovieSearch() {
   const [UrlQ, setUrlQ] = useState(urlParams.get('name'));
 
   const formHandler = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const inputValue = e.target.name.value;
     // console.log(inputValue);
     setUrlQ(inputValue);
     navigate(`/search?name=${inputValue.toLowerCase()}`);
   };
 
-  // const debouncedOnChange = debounce(formHandler, 3000);
+  const debouncedOnChange = debounce(formHandler, 3000);
 
   // const results = (
   //   <h4>
@@ -41,11 +41,11 @@ function MovieSearch() {
             name="name"
             type="text"
             id="search"
-            // onChange={debouncedOnChange}
+            onChange={debouncedOnChange}
             defaultValue={UrlQ}
             placeholder="Search character..."
           />
-          <button onClick={() => formHandler()} type="button">
+          <button onClick={(e) => formHandler(e)} type="button">
             <AiOutlineSearch size={25} />
           </button>
           <button type="button">
