@@ -1,59 +1,58 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-// import { useLocation } from 'react-router-dom';
 // icons
 import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai';
 // debounce perform
 import debounce from 'lodash.debounce';
+// components
+import DiscoverWidget from './DiscoverWidget';
+import TrendingWidget from './TrendingWidget';
+import Search from '../pages/Search';
 
 function MovieSearch() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  // const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('');
 
-  const urlParams = new URLSearchParams(location.search);
-  const [UrlQ, setUrlQ] = useState(urlParams.get('name'));
+  const updateQuery = (e) => setSearch(e?.target?.value);
 
-  const formHandler = (e) => {
-    // e.preventDefault();
-    const inputValue = e.target.name.value;
-    // console.log(inputValue);
-    setUrlQ(inputValue);
-    navigate(`/search?name=${inputValue.toLowerCase()}`);
+  const debouncedOnChange = debounce(updateQuery, 3000);
+
+  const HandleInput = (e) => {
+    setSearch(e?.target?.value);
   };
-
-  const debouncedOnChange = debounce(formHandler, 3000);
-
-  // const results = (
-  //   <h4>
-  //     {' '}
-  //     Search movie:
-  //     {' '}
-  //     {' '}
-  //   </h4>
-  // );
+  const inputReset = (e) => {
+    e.preventDefault();
+    setSearch(e?.target?.value === ' ');
+  };
+  console.log(search);
 
   return (
     <>
       <div>
-        <form onSubmit={formHandler}>
-          <input
-            name="name"
-            type="text"
-            id="search"
-            onChange={debouncedOnChange}
-            defaultValue={UrlQ}
-            placeholder="Search character..."
-          />
-          <button onClick={(e) => formHandler(e)} type="button">
-            <AiOutlineSearch size={25} />
-          </button>
-          <button type="button">
-            <AiOutlineCloseCircle size={25} />
-          </button>
-        </form>
+        <input
+          name="name"
+          type="text"
+          id="search"
+          onChange={debouncedOnChange}
+          placeholder="Search character..."
+        />
+        <button onClick={(e) => HandleInput(e)} type="button">
+          <AiOutlineSearch size={25} />
+        </button>
+        <button onClick={(e) => inputReset(e)} type="button">
+          <AiOutlineCloseCircle size={25} />
+        </button>
       </div>
-      {/* {UrlQ && results} */}
+      <div>
+        {
+          search
+            ? <Search search={search} />
+            : (
+              <>
+                <DiscoverWidget />
+                <TrendingWidget />
+              </>
+            )
+        }
+      </div>
     </>
   );
 }

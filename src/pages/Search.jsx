@@ -1,52 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 // query
 import { useQuery } from 'react-query';
-import { useLocation } from 'react-router-dom';
 import { fetchSearch } from '../api';
-// components
-import { MovieSearch } from '../components';
+// css
+import { Grid, MarginVertical } from '../styles/baseStyles';
+import MovieCard from '../components/MovieCard';
 
-// icons
-// import { RiErrorWarningLine } from "react-icons/ri";
-
-function Search() {
-  const location = useLocation();
-  const urlParams = new URLSearchParams(location.search);
-  const [search] = useState(urlParams.get('name'));
-  // const [searchMovie, setSearchMovie] = useState([]);
-
+function Search({ search }) {
   const {
     data: searchMovie,
   } = useQuery(['searchMovie', search], () => fetchSearch(search), {
     select: (data) => data.data.results,
   });
 
-  // const isSearch = search !== null && !searchCharacter?.length;
-
-  // if (isSearch) {
-  //   return (
-  //     <>
-  //       <MovieSearch />
-  //       <div className="container my-5">
-  //         <div className="alert d-flex flex-row" role="alert">
-  //           <RiErrorWarningLine size={35} color="red" className="me-3" />
-  //           <h2>There is no such character...</h2>
-  //         </div>
-  //       </div>
-  //     </>
-  //   );
-  // }
-
   return (
-    <>
-      <MovieSearch />
-      {
-        searchMovie?.map((item) => (
-          <li key={item.id}>{item.title}</li>
-        ))
-      }
-    </>
+    <MarginVertical>
+      <Grid col={4}>
+        {
+          searchMovie?.map((item) => (
+            <MovieCard movieData={item} />
+          ))
+        }
+      </Grid>
+    </MarginVertical>
   );
 }
+
+Search.propTypes = {
+  search: PropTypes.string,
+
+};
+Search.defaultProps = {
+  search: '',
+};
 
 export default Search;

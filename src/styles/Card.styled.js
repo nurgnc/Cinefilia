@@ -24,6 +24,8 @@ export const CardImg = styled.div`
   align-items: center;
   & > img {
     border-radius: 15px;
+    object-fit: fill;
+    min-height: 500px;
   }
 `;
 

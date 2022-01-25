@@ -1,14 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
-// redux package
-// import { useSelector, useDispatch } from 'react-redux';
 // slider package
 import Slider from 'react-slick';
 // api local
-import { fetchTrending } from '../api';
-// redux local
-// import { setTime } from '../store/trendingTime';
+import { fetchTrending, fetchGenres } from '../api';
 // slider local
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -19,15 +15,23 @@ import MovieCard from './MovieCard';
 import { MarginVertical } from '../styles/baseStyles';
 
 function TrendingWidget() {
-  // const { time } = useSelector((state) => state);
-  // const dispatch = useDispatch();
   const [time, setTime] = useState('day');
 
   const { data: movieData } = useQuery(['trendingMovie', time], () => fetchTrending(time), { select: (data) => data.data.results });
 
-  const [trendingMovie, setTrendingMovie] = useState(movieData);
-  console.log('time::::', time);
-  console.log('moviedata', movieData);
+  const { data: movieGenres } = useQuery(
+    'movieGenres',
+    fetchGenres,
+    {
+      select: (data) => data.data.genres,
+    },
+  );
+
+  const [trendingMovie, setTrendingMovie] = useState([]);
+
+  useEffect(() => {
+    setTrendingMovie(movieData);
+  }, [movieData]);
 
   return (
     <MarginVertical>
@@ -36,8 +40,6 @@ function TrendingWidget() {
         type="button"
         onClick={() => {
           setTime('day');
-          setTrendingMovie(movieData);
-          console.log('day');
         }}
       >
         Today
@@ -47,8 +49,6 @@ function TrendingWidget() {
         type="button"
         onClick={() => {
           setTime('week');
-          setTrendingMovie(movieData);
-          console.log('week');
         }}
       >
         Last Week
@@ -56,7 +56,11 @@ function TrendingWidget() {
       </button>
       <Slider {...settingsMainSlider}>
         {trendingMovie?.map((item) => (
-          <MovieCard movieData={item} />
+          <MovieCard
+            movieData={item}
+            genres={movieGenres
+              ?.filter((genre) => item?.genre_ids?.includes(genre.id))}
+          />
         ))}
       </Slider>
     </MarginVertical>

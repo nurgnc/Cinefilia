@@ -14,7 +14,17 @@ function MovieReviews({ movieId }) {
     select: (data) => data.data.results,
   });
   const reviews = movieReviews?.slice(0, 1);
-  // const avatar = console.log(avatar);
+  const avatar = reviews?.filter((item) => item.author_details.avatar_path.includes('http')).map((img) => (
+    // eslint-disable-next-line max-len
+    <ImgReview
+      src={img.author_details.avatar_path
+        // eslint-disable-next-line no-unsafe-optional-chaining
+        .slice(1, img.author_details.avatar_path?.length + 1)}
+      alt={img.author}
+    />
+  ));
+
+  console.log(avatar);
 
   if (Array.isArray(movieReviews) && !movieReviews.length) {
     return (
@@ -27,13 +37,12 @@ function MovieReviews({ movieId }) {
   return (
     <>
       <h2>Reviews</h2>
-      {reviews.filter((item) => item.author_details.avatar_path.includes('http')).map((img) => (
-        <ImgReview src={img.author_details.avatar_path.split('/')[0]} alt={img.author} />
-      ))}
+
       {reviews?.map((item) => (
         <CardReview>
           <div>
-            <ImgReview src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />
+            {avatar || <ImgReview src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />}
+
           </div>
           <CardReviewBody>
             <h3>{item.author}</h3>

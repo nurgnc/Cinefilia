@@ -13,7 +13,7 @@ function MovieCrew({ movieId }) {
     select: (data) => data.data.crew,
   });
 
-  const crew = movieCrew.slice(0, 3);
+  const crew = movieCrew?.slice(0, 3);
   return (
     <>
       <h3>Crew</h3>

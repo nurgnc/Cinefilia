@@ -1,14 +1,12 @@
 import React from 'react';
 import { Container, HomeWrapper } from '../styles/baseStyles';
-import { DiscoverWidget, MovieSearch, TrendingWidget } from '../components';
+import { MovieSearch } from '../components';
 
 function Home() {
   return (
     <Container>
       <HomeWrapper />
       <MovieSearch />
-      <DiscoverWidget />
-      <TrendingWidget />
     </Container>
   );
 }
