@@ -3,9 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // query
 import { useQuery } from 'react-query';
-import { fetchReviews, img300 } from '../api';
+import { fetchReviews, img300, defaultImg } from '../api';
 // css
-import { CardReview, ImgReview, CardReviewBody } from '../styles/Card.styled';
+import { CardReview, ImgAvatar, CardReviewBody } from '../styles/Card.styled';
+import { Flex } from '../styles/baseStyles';
 
 function MovieReviews({ movieId }) {
   const {
@@ -13,10 +14,11 @@ function MovieReviews({ movieId }) {
   } = useQuery(['movieReviews', movieId], () => fetchReviews(movieId), {
     select: (data) => data.data.results,
   });
+
   const reviews = movieReviews?.slice(0, 1);
-  const avatar = reviews?.filter((item) => item.author_details.avatar_path.includes('http')).map((img) => (
+  const avatar = reviews?.filter((item) => item.author_details.avatar_path?.includes('http')).map((img) => (
     // eslint-disable-next-line max-len
-    <ImgReview
+    <ImgAvatar
       src={img.author_details.avatar_path
         // eslint-disable-next-line no-unsafe-optional-chaining
         .slice(1, img.author_details.avatar_path?.length + 1)}
@@ -24,7 +26,11 @@ function MovieReviews({ movieId }) {
     />
   ));
 
-  console.log(avatar);
+  const isAvatar = avatar?.length === 0 ? (
+    <ImgAvatar
+      src={defaultImg}
+    />
+  ) : avatar;
 
   if (Array.isArray(movieReviews) && !movieReviews.length) {
     return (
@@ -40,12 +46,11 @@ function MovieReviews({ movieId }) {
 
       {reviews?.map((item) => (
         <CardReview>
-          <div>
-            {avatar || <ImgReview src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />}
-
-          </div>
-          <CardReviewBody>
+          <Flex>
+            {isAvatar || <ImgAvatar src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />}
             <h3>{item.author}</h3>
+          </Flex>
+          <CardReviewBody>
             <p>{item.content}</p>
           </CardReviewBody>
         </CardReview>

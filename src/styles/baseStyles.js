@@ -20,7 +20,6 @@ export const MarginVertical = styled.div`
 export const Flex = styled.div`
   display: flex;
   align-items: center;
-  width: 20%;
   & > div,
   & > ul {
     flex: 1;

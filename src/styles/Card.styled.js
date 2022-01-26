@@ -59,7 +59,7 @@ export const MovieLink = styled(Link)`
 
 export const CardReview = styled.div`
 display: flex;
-flex-directions: row;
+flex-direction: column;
 justify-content: space-between;
   align-items: flex-start;
 background-color: #fff;
@@ -69,12 +69,13 @@ background-color: #fff;
 `;
 
 export const CardReviewBody = styled.div`
-padding: 10px 15px;
+padding: 0px 15px 10px;
 `;
 
-export const ImgReview = styled.img`
-max-width: 100px;
+export const ImgAvatar = styled.img`
+max-width: 120px;
 height: auto;
 border-radius: 50%;
-padding: 2rem 15px;
+padding: 1rem 15px;
+margin-right: 20px;
 `;

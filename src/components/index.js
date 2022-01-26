@@ -8,6 +8,7 @@ import MovieCard from './MovieCard';
 import MovieSearch from './MovieSearch';
 import MoviesToggle from './MoviesToggle';
 import NavbarUserInfo from './NavbarUserInfo';
+import SearchPagination from './SearchPagination';
 import TrendingWidget from './TrendingWidget';
 import ThemeButton from './ThemeButton';
 
@@ -22,6 +23,7 @@ export {
   MovieSearch,
   MoviesToggle,
   NavbarUserInfo,
+  SearchPagination,
   TrendingWidget,
   ThemeButton,
 };
