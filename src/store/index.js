@@ -4,19 +4,19 @@ import storage from 'redux-persist/lib/storage';
 import bookmarkReducer from './bookmarks';
 import likeReducer from './likes';
 import themeReducer from './theme';
-import userInfo from '../init_user.json';
+import userInfo from './initUser';
 
 const rootReducer = combineReducers({
   bookmarks: bookmarkReducer,
   likes: likeReducer,
   theme: themeReducer,
-  userName: userInfo.username,
+  user: userInfo,
 });
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['theme', 'userName', 'likes', 'bookmarks'],
+  whitelist: ['theme', 'user', 'likes', 'bookmarks'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

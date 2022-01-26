@@ -1,9 +1,7 @@
-// query
-import { useQuery } from 'react-query';
 // router
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { base, apiKey, fetchGenres } from '../api';
+import { base, apiKey } from '../api';
 // css
 import { Container, MarginVertical, Grid } from '../styles/baseStyles';
 import { MovieCard } from '../components';
@@ -12,14 +10,6 @@ function MovieCategory() {
   const [page, setPage] = useState(1);
   const { movieCat } = useParams();
   const [movieData, setMovieData] = useState([]);
-
-  const { data: movieGenres } = useQuery(
-    'movieGenres',
-    fetchGenres,
-    {
-      select: (data) => data.data.genres,
-    },
-  );
 
   const fetchData = (pageNumber, category) => base.get(`/movie/${category}${apiKey}&page=${pageNumber}`).then((response) => {
     const movies = response.data.results;
@@ -43,8 +33,6 @@ function MovieCategory() {
           {movieData?.map((item) => (
             <MovieCard
               movieData={item}
-              genres={movieGenres
-                ?.filter((genre) => item?.genre_ids?.includes(genre.id))}
             />
           ))}
           <button

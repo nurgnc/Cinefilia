@@ -15,14 +15,11 @@ function MovieSearch() {
 
   const debouncedOnChange = debounce(updateQuery, 3000);
 
-  const HandleInput = (e) => {
-    setSearch(e?.target?.value);
-  };
   const inputReset = (e) => {
     e.preventDefault();
     setSearch(e?.target?.value === ' ');
+    document.getElementById('search').value = '';
   };
-  console.log(search);
 
   return (
     <>
@@ -32,9 +29,9 @@ function MovieSearch() {
           type="text"
           id="search"
           onChange={debouncedOnChange}
-          placeholder="Search character..."
+          placeholder="Search movie..."
         />
-        <button onClick={(e) => HandleInput(e)} type="button">
+        <button type="button">
           <AiOutlineSearch size={25} />
         </button>
         <button onClick={(e) => inputReset(e)} type="button">

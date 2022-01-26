@@ -2,6 +2,8 @@
 import React from 'react';
 // redux
 import { useDispatch, useSelector } from 'react-redux';
+// query
+import { useQuery } from 'react-query';
 // icons
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
 import { BsBookmarkCheckFill, BsBookmarkCheck } from 'react-icons/bs';
@@ -17,20 +19,27 @@ import {
   CardImg,
   CardBody,
 } from '../styles/Card.styled';
-import { img300 } from '../api';
+import { fetchGenres, img300 } from '../api';
 // default img
 import defaultImg from '../assets/img/no-img.jpg';
 
-function MovieCard({ movieData, genres }) {
+function MovieCard({ movieData }) {
   const { likes, bookmarks } = useSelector((state) => state);
   const dispatch = useDispatch();
+
+  const { data: movieGenres } = useQuery(
+    'movieGenres',
+    fetchGenres,
+    {
+      select: (data) => data.data.genres,
+    },
+  );
+
+  const genres = movieGenres?.filter((genre) => movieData?.genre_ids?.includes(genre.id));
 
   const isLike = likes?.some((item) => item.id === movieData.id);
   const isBookmark = bookmarks?.some((item) => item.id === movieData.id);
 
-  console.log('isLike', isLike);
-
-  // console.log('-------likes', likes);
   const noPicture = movieData.poster_path === null ? `${defaultImg}` : `${img300}${movieData?.poster_path}`;
 
   return (

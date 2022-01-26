@@ -7,10 +7,7 @@ const img500 = 'https://image.tmdb.org/t/p/w500';
 const defaultImg = 'https://st4.depositphotos.com/1156795/20814/v/450/depositphotos_208142514-stock-illustration-profile-placeholder-image-gray-silhouette.jpg';
 
 // home widget
-const fetchTrending = (timeWindow) => {
-  console.log(timeWindow);
-  return base.get(`/trending/movie/${timeWindow}${apiKey}`);
-};
+const fetchTrending = (timeWindow) => base.get(`/trending/movie/${timeWindow}${apiKey}`);
 
 const fetchDiscover = () => base.get(`/discover/movie${apiKey}`);
 
