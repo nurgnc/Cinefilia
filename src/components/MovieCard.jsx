@@ -24,7 +24,7 @@ import { fetchGenres, img300 } from '../api';
 import defaultImg from '../assets/img/no-img.jpg';
 
 function MovieCard({ movieData }) {
-  const { likes, bookmarks } = useSelector((state) => state);
+  const { likes, bookmarks, isLogin } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const { data: movieGenres } = useQuery(
@@ -49,54 +49,59 @@ function MovieCard({ movieData }) {
       </CardImg>
       <CardBody>
         <Grid col={2}>
-          <div>
-            {
-              isLike
-                ? (
-                  <IoIosHeart
-                    size={25}
-                    color="red"
-                    onClick={() => dispatch(removeLike(movieData.id))}
-                  />
-                )
-                : (
-                  <IoIosHeartEmpty
-                    size={25}
-                    color="red"
-                    onClick={() => dispatch(addLike(
-                      movieData.id,
-                      movieData.title,
-                      noPicture,
-                      movieData?.release_date,
-                      genres,
-                    ))}
-                  />
-                )
-            }
-          </div>
-          <div>
-            {
-              isBookmark
-                ? (
-                  <BsBookmarkCheckFill
-                    size={25}
-                    onClick={() => dispatch(removeBookmark(movieData.id))}
-                  />
-                )
-                : (
-                  <BsBookmarkCheck
-                    size={25}
-                    onClick={() => dispatch(addBookmark(
-                      movieData.id,
-                      movieData.title,
-                      noPicture,
-                      movieData?.release_date,
-                      genres,
-                    ))}
-                  />
-                )
-            }
-          </div>
+          {isLogin
+            && (
+              <>
+                <div>
+                  {
+                    isLike
+                      ? (
+                        <IoIosHeart
+                          size={25}
+                          color="red"
+                          onClick={() => dispatch(removeLike(movieData.id))}
+                        />
+                      )
+                      : (
+                        <IoIosHeartEmpty
+                          size={25}
+                          color="red"
+                          onClick={() => dispatch(addLike(
+                            movieData.id,
+                            movieData.title,
+                            noPicture,
+                            movieData?.release_date,
+                            genres,
+                          ))}
+                        />
+                      )
+                  }
+                </div>
+                <div>
+                  {
+                    isBookmark
+                      ? (
+                        <BsBookmarkCheckFill
+                          size={25}
+                          onClick={() => dispatch(removeBookmark(movieData.id))}
+                        />
+                      )
+                      : (
+                        <BsBookmarkCheck
+                          size={25}
+                          onClick={() => dispatch(addBookmark(
+                            movieData.id,
+                            movieData.title,
+                            noPicture,
+                            movieData?.release_date,
+                            genres,
+                          ))}
+                        />
+                      )
+                  }
+                </div>
+              </>
+            )}
         </Grid>
         <MovieLink to={`/movies/${movieData?.id}`}>{movieData?.title}</MovieLink>
         <p>{movieData?.release_date}</p>
