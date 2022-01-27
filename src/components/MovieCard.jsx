@@ -112,6 +112,12 @@ function MovieCard({ movieData }) {
             ,
           </span>
         ))}
+        <br />
+        <b>
+          Popularity:
+          {' '}
+          {movieData.popularity}
+        </b>
 
       </CardBody>
     </StyledCard>

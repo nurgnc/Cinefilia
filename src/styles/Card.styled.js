@@ -9,7 +9,6 @@ export const CardBody = styled.div`
   width: 300px;
   background: rgb(255, 255, 255, 0.8);
   border-radius: 0 0 15px 15px;
-  // bottom: 0;
   opacity: 0;
   & > p {
     color: black;
@@ -25,7 +24,7 @@ export const CardImg = styled.div`
   & > img {
     border-radius: 15px;
     object-fit: fill;
-    min-height: 500px;
+    max-height: 500px;
   }
 `;
 
@@ -40,6 +39,7 @@ export const StyledCard = styled.div`
   flex-direction: column;
   &:hover ${CardBody} {
     opacity: 1;
+    border-radius: 15px;
   }
   &:hover ${CardImg} {
     // filter: blur(3px);
