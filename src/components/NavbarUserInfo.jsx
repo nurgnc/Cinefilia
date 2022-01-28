@@ -24,8 +24,8 @@ function NavbarUserInfo() {
           <div>
             <Link to="/profile">
               <ImgAvatar src={user.avatarUrl} alt="" />
-              <FiLogOut size={25} onClick={() => dispatch(setLogin(!isLogin))} />
             </Link>
+            <FiLogOut size={25} onClick={() => dispatch(setLogin(!isLogin))} />
           </div>
         )
         : (

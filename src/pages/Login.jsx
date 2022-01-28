@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setLogin } from '../store/user';
-// import { setUser } from '../store/user';
+import { setLogin, setUser } from '../store/user';
+import users from '../init_user.json';
 
 function Login() {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const { user, isLogin } = useSelector((state) => state);
+  const { isLogin } = useSelector((state) => state);
   const navigate = useNavigate();
 
   function handleLogin(username, userPassword) {
-    if (username === user.username && userPassword === user.password) {
+    const user = users.filter((item) => item.username === username)[0];
+    if (userPassword === user.password) {
+      dispatch(setUser(user));
       dispatch(setLogin(!isLogin));
       navigate('/');
-      setName('');
-      setPassword('');
-      document.getElementsByTagName('input').value = '';
     }
   }
 

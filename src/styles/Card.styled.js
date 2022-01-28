@@ -24,7 +24,7 @@ export const CardImg = styled.div`
   & > img {
     border-radius: 15px;
     object-fit: fill;
-    max-height: 500px;
+    min-height: 450px;
   }
 `;
 

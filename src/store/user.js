@@ -8,9 +8,13 @@ const setLogin = (isLogin) => ({
   payload: isLogin,
 });
 
+const setUser = (user) => ({
+  type: INITUSER,
+  payload: user,
+});
+
 function userReducer(user, action) {
   const userData = user === undefined ? initUser : user;
-
   switch (action.type) {
     case INITUSER:
       return action.payload;
@@ -30,4 +34,6 @@ function loginReducer(isLogin, action) {
 }
 
 export default userReducer;
-export { userReducer, loginReducer, setLogin };
+export {
+  userReducer, loginReducer, setLogin, setUser,
+};
