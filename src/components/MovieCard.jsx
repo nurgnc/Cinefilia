@@ -1,15 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-// redux
-import { useDispatch, useSelector } from 'react-redux';
 // query
 import { useQuery } from 'react-query';
-// icons
-import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
-import { BsBookmarkCheckFill, BsBookmarkCheck } from 'react-icons/bs';
-
-import { addLike, removeLike } from '../store/likes';
-import { addBookmark, removeBookmark } from '../store/bookmarks';
+import LikeAndBookmarkButton from './LikeAndBookmarkButton';
 
 // css
 import { Grid } from '../styles/baseStyles';
@@ -24,9 +17,6 @@ import { fetchGenres, img300 } from '../api';
 import defaultImg from '../assets/img/no-img.jpg';
 
 function MovieCard({ movieData }) {
-  const { likes, bookmarks, isLogin } = useSelector((state) => state);
-  const dispatch = useDispatch();
-
   const { data: movieGenres } = useQuery(
     'movieGenres',
     fetchGenres,
@@ -37,9 +27,6 @@ function MovieCard({ movieData }) {
 
   const genres = movieGenres?.filter((genre) => movieData?.genre_ids?.includes(genre.id));
 
-  const isLike = likes?.some((item) => item.id === movieData.id);
-  const isBookmark = bookmarks?.some((item) => item.id === movieData.id);
-
   const noPicture = movieData.poster_path === null ? `${defaultImg}` : `${img300}${movieData?.poster_path}`;
 
   return (
@@ -49,59 +36,13 @@ function MovieCard({ movieData }) {
       </CardImg>
       <CardBody>
         <Grid col={2}>
-          {isLogin
-            && (
-              <>
-                <div>
-                  {
-                    isLike
-                      ? (
-                        <IoIosHeart
-                          size={25}
-                          color="red"
-                          onClick={() => dispatch(removeLike(movieData.id))}
-                        />
-                      )
-                      : (
-                        <IoIosHeartEmpty
-                          size={25}
-                          color="red"
-                          onClick={() => dispatch(addLike(
-                            movieData.id,
-                            movieData.title,
-                            noPicture,
-                            movieData?.release_date,
-                            genres,
-                          ))}
-                        />
-                      )
-                  }
-                </div>
-                <div>
-                  {
-                    isBookmark
-                      ? (
-                        <BsBookmarkCheckFill
-                          size={25}
-                          onClick={() => dispatch(removeBookmark(movieData.id))}
-                        />
-                      )
-                      : (
-                        <BsBookmarkCheck
-                          size={25}
-                          onClick={() => dispatch(addBookmark(
-                            movieData.id,
-                            movieData.title,
-                            noPicture,
-                            movieData?.release_date,
-                            genres,
-                          ))}
-                        />
-                      )
-                  }
-                </div>
-              </>
-            )}
+          <LikeAndBookmarkButton
+            id={movieData.id}
+            title={movieData.title}
+            noPicture={noPicture}
+            releaseDate={movieData.release_date}
+            genres={genres}
+          />
         </Grid>
         <MovieLink to={`/movies/${movieData?.id}`}>{movieData?.title}</MovieLink>
         <p>{movieData?.release_date}</p>

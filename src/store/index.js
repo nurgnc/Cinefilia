@@ -3,7 +3,6 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import bookmarkReducer from './bookmarks';
 import likeReducer from './likes';
-import categoryReducer from './movieCategory';
 import themeReducer from './theme';
 import { userReducer, loginReducer } from './user';
 
@@ -13,13 +12,12 @@ const rootReducer = combineReducers({
   theme: themeReducer,
   user: userReducer,
   isLogin: loginReducer,
-  category: categoryReducer,
 });
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['theme', 'likes', 'bookmarks', 'isLogin'],
+  whitelist: ['theme', 'likes', 'bookmarks', 'user', 'isLogin'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
