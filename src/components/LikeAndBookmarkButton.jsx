@@ -12,8 +12,11 @@ import { addBookmark, removeBookmark } from '../store/bookmarks';
 function LikeAndBookmarkButton({
   id, title, noPicture, releaseDate, genres,
 }) {
-  const { likes, bookmarks, isLogin } = useSelector((state) => state);
+  const {
+    likes, bookmarks, isLogin, theme,
+  } = useSelector((state) => state);
   const dispatch = useDispatch();
+  console.log(theme);
 
   const isLike = likes?.some((item) => item.id === id);
   const isBookmark = bookmarks?.some((item) => item.id === id);
@@ -25,14 +28,14 @@ function LikeAndBookmarkButton({
             isLike
               ? (
                 <IoIosHeart
-                  size={25}
+                  size={30}
                   color="red"
                   onClick={() => dispatch(removeLike(id))}
                 />
               )
               : (
                 <IoIosHeartEmpty
-                  size={25}
+                  size={30}
                   color="red"
                   onClick={() => dispatch(addLike(
                     id,

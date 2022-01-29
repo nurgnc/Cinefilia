@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 import LikeAndBookmarkButton from './LikeAndBookmarkButton';
 
 // css
-import { Grid } from '../styles/baseStyles';
+import { Flex } from '../styles/baseStyles';
 import {
   StyledCard,
   MovieLink,
@@ -36,7 +36,7 @@ function MovieCard({ movieData }) {
         <img src={noPicture} alt={movieData?.title} />
       </CardImg>
       <CardBody>
-        <Grid col={2}>
+        <Flex flexDirection="row" justify="space-between" align="center">
           <LikeAndBookmarkButton
             id={movieData.id}
             title={movieData.title}
@@ -44,23 +44,18 @@ function MovieCard({ movieData }) {
             releaseDate={movieData.release_date}
             genres={genres}
           />
-        </Grid>
-        <MovieLink to={`/movies/${movieData?.id}`}>{movieData?.title}</MovieLink>
-        <p>{movieData?.release_date}</p>
-        {genres?.map((item, index) => (
-          <span key={index}>
-            {item.name}
-            {' '}
-            ,
-          </span>
-        ))}
-        <br />
-        <b>
-          Popularity:
-          {' '}
-          {movieData.popularity}
-        </b>
-
+        </Flex>
+        <div>
+          <MovieLink to={`/movies/${movieData?.id}`}>{movieData?.title}</MovieLink>
+          <p>{movieData?.release_date}</p>
+          {genres?.map((item, index) => (
+            <span key={index}>
+              {item.name}
+              {' '}
+              ,
+            </span>
+          ))}
+        </div>
       </CardBody>
     </StyledCard>
   );

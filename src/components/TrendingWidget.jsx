@@ -13,8 +13,8 @@ import { settingsMainSlider } from './SliderSettings';
 // components
 import MovieCard from './MovieCard';
 // css
-import { MarginVertical, Flex } from '../styles/baseStyles';
-import { TimeButton, TrendingContent } from '../styles/InputsAndButtons.styled';
+import { MarginVertical } from '../styles/baseStyles';
+import { TimeButton, TrendingContent, TimeButtons } from '../styles/InputsAndButtons.styled';
 
 function TrendingWidget() {
   const [time, setTime] = useState('day');
@@ -31,7 +31,7 @@ function TrendingWidget() {
     <MarginVertical>
       <TrendingContent>
         <h1>Trending</h1>
-        <Flex>
+        <TimeButtons>
           <TimeButton
             type="button"
             onClick={() => {
@@ -52,7 +52,7 @@ function TrendingWidget() {
             Last Week
 
           </TimeButton>
-        </Flex>
+        </TimeButtons>
       </TrendingContent>
       <Slider {...settingsMainSlider}>
         {trendingMovie?.map((item, index) => (

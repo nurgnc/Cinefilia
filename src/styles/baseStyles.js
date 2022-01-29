@@ -19,8 +19,9 @@ export const MarginVertical = styled.div`
 
 export const Flex = styled.div`
   display: flex;
-  align-items: center;
-  & > div,
+  flex-direction: ${(props) => props.flexDirection};
+  align-items: ${(props) => props.align};
+  justify-content: ${(props) => props.justify};
   & > ul {
     flex: 1;
   }
