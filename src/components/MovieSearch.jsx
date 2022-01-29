@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-// icons
-import { AiOutlineCloseCircle } from 'react-icons/ai';
+// // icons
+// import { AiOutlineCloseCircle } from 'react-icons/ai';
 // debounce perform
 import debounce from 'lodash.debounce';
 // components
 import DiscoverWidget from './DiscoverWidget';
 import TrendingWidget from './TrendingWidget';
 import Search from '../pages/Search';
+// css
+import { MarginVertical } from '../styles/baseStyles';
+import { SearchInput, ResetButton, SearchBar } from '../styles/InputsAndButtons.styled';
 
 function MovieSearch() {
   const [search, setSearch] = useState('');
@@ -23,18 +26,18 @@ function MovieSearch() {
 
   return (
     <>
-      <div>
-        <input
-          name="name"
-          type="text"
-          id="search"
-          onChange={debouncedOnChange}
-          placeholder="Search movie..."
-        />
-        <button onClick={(e) => inputReset(e)} type="button">
-          <AiOutlineCloseCircle size={25} />
-        </button>
-      </div>
+      <MarginVertical>
+        <SearchBar>
+          <SearchInput
+            name="name"
+            type="text"
+            id="search"
+            onChange={debouncedOnChange}
+            placeholder="Search movie..."
+          />
+          <ResetButton size={30} onClick={(e) => inputReset(e)} />
+        </SearchBar>
+      </MarginVertical>
       <div>
         {
           search

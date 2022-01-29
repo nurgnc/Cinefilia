@@ -13,7 +13,8 @@ import { settingsMainSlider } from './SliderSettings';
 // components
 import MovieCard from './MovieCard';
 // css
-import { MarginVertical } from '../styles/baseStyles';
+import { MarginVertical, Flex } from '../styles/baseStyles';
+import { TimeButton, TrendingContent } from '../styles/InputsAndButtons.styled';
 
 function TrendingWidget() {
   const [time, setTime] = useState('day');
@@ -28,25 +29,31 @@ function TrendingWidget() {
 
   return (
     <MarginVertical>
-      <h1>Trending</h1>
-      <button
-        type="button"
-        onClick={() => {
-          setTime('day');
-        }}
-      >
-        Today
+      <TrendingContent>
+        <h1>Trending</h1>
+        <Flex>
+          <TimeButton
+            type="button"
+            onClick={() => {
+              setTime('day');
+            }}
+            active={time === 'day' && 'active'}
+          >
+            Today
 
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          setTime('week');
-        }}
-      >
-        Last Week
+          </TimeButton>
+          <TimeButton
+            type="button"
+            onClick={() => {
+              setTime('week');
+            }}
+            active={time === 'week' && 'active'}
+          >
+            Last Week
 
-      </button>
+          </TimeButton>
+        </Flex>
+      </TrendingContent>
       <Slider {...settingsMainSlider}>
         {trendingMovie?.map((item, index) => (
           <MovieCard

@@ -33,17 +33,17 @@ export const StyledCard = styled.div`
   align-items: center;
   background-color: #fff;
   border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  margin: 20px auto;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  padding: 20px auto;
   max-width: 300px;
   flex-direction: column;
+  &:hover {
+    // transform: scale(1.1);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  }
   &:hover ${CardBody} {
     opacity: 1;
     border-radius: 15px;
-  }
-  &:hover ${CardImg} {
-    // filter: blur(3px);
-    // -webkit-filter: blur(3px);
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;

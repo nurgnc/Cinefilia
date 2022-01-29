@@ -2,7 +2,7 @@ const themes = {
   light: {
     bg: '#4C0070',
     textColor: '#fff',
-    border: '#4C0070',
+    border: '#79018C',
   },
   dark: {
     bg: '#160040',
