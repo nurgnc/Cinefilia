@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // query
@@ -31,8 +32,8 @@ function Search({ search }) {
     <MarginVertical>
       <Grid col={4}>
         {
-          currentMovies?.map((item) => (
-            <MovieCard movieData={item} />
+          currentMovies?.map((item, index) => (
+            <MovieCard key={index} movieData={item} />
           ))
         }
       </Grid>

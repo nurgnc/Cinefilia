@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 // icons
 import { BsTwitter, BsInstagram } from 'react-icons/bs';
+// components
+import { ProfileTable } from '../components';
 // css
 import {
   Container, MarginVertical, Flex,
@@ -10,6 +12,7 @@ import { ImgAvatar } from '../styles/Card.styled';
 
 function Profile() {
   const { user, likes, bookmarks } = useSelector((state) => state);
+
   return (
     <Container>
       <MarginVertical>
@@ -49,7 +52,9 @@ function Profile() {
         </Flex>
 
       </MarginVertical>
-
+      <MarginVertical>
+        <ProfileTable />
+      </MarginVertical>
     </Container>
   );
 }

@@ -3,9 +3,7 @@ import React from 'react';
 import { ThemeButton, MoviesToggle, NavbarUserInfo } from '../index';
 // css
 import { ContainerFluid, Flex } from '../../styles/baseStyles';
-import { Nav, Logo, StyledLink } from '../../styles/Navbar.styled';
-// logo
-import logo from '../../assets/img/logo.png';
+import { Nav, StyledLink } from '../../styles/Navbar.styled';
 
 function Navbar() {
   return (
@@ -13,7 +11,7 @@ function Navbar() {
       <Nav>
         <>
           <StyledLink to="/">
-            <Logo src={logo} alt="logo" />
+            CINEFILIA
           </StyledLink>
           <MoviesToggle />
         </>

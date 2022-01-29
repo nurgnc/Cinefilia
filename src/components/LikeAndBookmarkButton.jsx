@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
 // redux
 import { useDispatch, useSelector } from 'react-redux';
 // icons
@@ -72,20 +72,5 @@ function LikeAndBookmarkButton({
     )
   );
 }
-
-LikeAndBookmarkButton.propTypes = {
-  id: PropTypes.number,
-  title: PropTypes.string,
-  noPicture: PropTypes.string,
-  releaseDate: PropTypes.string,
-  genres: PropTypes.string,
-};
-LikeAndBookmarkButton.defaultProps = {
-  id: '',
-  title: '',
-  noPicture: '',
-  releaseDate: '',
-  genres: '',
-};
 
 export default LikeAndBookmarkButton;

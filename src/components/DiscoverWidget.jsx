@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 // packages
@@ -22,8 +23,9 @@ function DiscoverWidget() {
     <MarginVertical>
       <h1>Discover</h1>
       <Slider {...settingsMainSlider}>
-        {movieData?.map((item) => (
+        {movieData?.map((item, index) => (
           <MovieCard
+            key={index}
             movieData={item}
           />
         ))}

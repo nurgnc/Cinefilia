@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 import React from 'react';
 // query
@@ -30,7 +31,7 @@ function MovieCard({ movieData }) {
   const noPicture = movieData.poster_path === null ? `${defaultImg}` : `${img300}${movieData?.poster_path}`;
 
   return (
-    <StyledCard key={movieData?.id}>
+    <StyledCard>
       <CardImg>
         <img src={noPicture} alt={movieData?.title} />
       </CardImg>
@@ -46,8 +47,8 @@ function MovieCard({ movieData }) {
         </Grid>
         <MovieLink to={`/movies/${movieData?.id}`}>{movieData?.title}</MovieLink>
         <p>{movieData?.release_date}</p>
-        {genres?.map((item) => (
-          <span>
+        {genres?.map((item, index) => (
+          <span key={index}>
             {item.name}
             {' '}
             ,

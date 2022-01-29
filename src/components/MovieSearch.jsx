@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // icons
-import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 // debounce perform
 import debounce from 'lodash.debounce';
 // components
@@ -31,9 +31,6 @@ function MovieSearch() {
           onChange={debouncedOnChange}
           placeholder="Search movie..."
         />
-        <button type="button">
-          <AiOutlineSearch size={25} />
-        </button>
         <button onClick={(e) => inputReset(e)} type="button">
           <AiOutlineCloseCircle size={25} />
         </button>

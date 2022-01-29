@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -18,8 +19,8 @@ function App() {
       <GlobalStyles />
       <Navbar />
       <Routes>
-        {routes.map((item) => (
-          <Route path={item.path} element={<item.element />} />
+        {routes.map((item, index) => (
+          <Route key={index} path={item.path} element={<item.element />} />
         ))}
       </Routes>
       <Footer />

@@ -11,12 +11,16 @@ function MoviesToggle() {
       onMouseLeave={() => setToggle(!toggle)}
       onMouseEnter={() => setToggle(!toggle)}
     >
-      <button type="button">Movies</button>
+      <div>Movies</div>
       {toggle && (
-        <div>
-          <Link to={`/movie/${popular}`}>Popular</Link>
-          <Link to={`/movie/${topRated}`}>Top Rated</Link>
-        </div>
+        <ul>
+          <li>
+            <Link to={`/movie/${popular}`}>Popular</Link>
+          </li>
+          <li>
+            <Link to={`/movie/${topRated}`}>Top Rated</Link>
+          </li>
+        </ul>
       )}
     </div>
   );

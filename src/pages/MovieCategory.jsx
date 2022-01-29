@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-return-await */
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
@@ -15,30 +16,32 @@ function MovieCategory() {
   const [movieData, setMovieData] = useState([]);
   const [filterData, setFilterData] = useState(movieData);
   const [genreId, setGenreId] = useState('');
-  const category = location?.pathname.split('movie/')[1];
-  // console.log('----genreId', genreId);
+  const [fromDate, setFromDate] = useState();
+  const [toDate, setToDate] = useState();
+  const movieCat = location?.pathname.split('movie/')[1];
 
   const fetchData = async (cat, id) => await base.get(`/movie/${cat}${apiKey}&with_genres=${id}`).then((response) => {
     const movies = response.data.results;
-    console.log('dataaaaa');
-    console.log('page', page);
     setFilterData(movies, ...filterData);
-    console.log(filterData);
-    console.log(filterData.length);
   });
 
-  const fetchLoadMore = (pageNumber) => base.get(`/movie/${category}${apiKey}&page=${pageNumber}&with_genres=${genreId}`).then((response) => {
+  const fetchCat = async (category) => await base.get(`/movie/${category}${apiKey}&with_genres=${genreId}`).then((response) => {
     const movies = response.data.results;
-    console.log('loadmoreeeee');
-    console.log('page', page);
+    setMovieData(movies, ...filterData);
+  });
+
+  const fetchDateToDate = (startDate, endDate) => base.get(`/discover/movie${apiKey}&primary_release_date.gte=${startDate}&primary_release_date.lte=${endDate}`).then((response) => {
+    const movies = response.data.results;
+    setFilterData(movies, ...filterData);
+  });
+
+  const fetchLoadMore = async (pageNumber) => await base.get(`/movie/${movieCat}${apiKey}&page=${pageNumber}&with_genres=${genreId}`).then((response) => {
+    const movies = response.data.results;
     const subData = [];
-    subData.push(...movieData);
+    subData.push(...filterData);
     subData.push(...movies);
     setMovieData(subData);
-    console.log('subdataaaa', subData);
-    setFilterData(subData);
-    console.log(filterData);
-    console.log(filterData.length);
+    // setFilterData(subData);
   });
 
   const { data: movieGenres } = useQuery(
@@ -50,8 +53,17 @@ function MovieCategory() {
   );
 
   useEffect(() => {
-    fetchData(category, genreId);
-  }, [location, genreId]);
+    fetchDateToDate(fromDate, toDate);
+  }, [fromDate, toDate]);
+
+  useEffect(() => {
+    const category = location?.pathname.split('movie/')[1];
+    fetchCat(category);
+  }, [location]);
+
+  useEffect(() => {
+    fetchData(movieCat, genreId);
+  }, [genreId]);
 
   useEffect(() => {
     fetchLoadMore(page);
@@ -90,7 +102,7 @@ function MovieCategory() {
       <MarginVertical>
         <div>
           <h1>Sort</h1>
-          <select>
+          <select onChange={(e) => console.log(e.target.value)}>
             <option value="a-to-z">Movie Title (from A to Z)</option>
             <option value="z-to-a">Movie Title (from Z to A)</option>
             <option value="most-populars">Most Populars</option>
@@ -137,13 +149,26 @@ function MovieCategory() {
             <br />
             <br />
             Date:
-            <input type="date" id="from_date" name="from_date" />
-            <input type="date" id="to_date" name="to_date" />
+            <input
+              type="date"
+              id="from_date"
+              name="from_date"
+              onChange={(e) => setFromDate(e.target.value)}
+            />
+            <input
+              type="date"
+              id="to_date"
+              name="to_date"
+              onChange={(e) => setToDate(e.target.value)}
+            />
           </div>
+          <button type="button" onClick={() => setMovieData(filterData)}>Filter</button>
+          <button type="button" onClick={() => setMovieData(movieData)}>Temizle</button>
         </div>
         <Grid col={4}>
-          {filterData?.map((item) => (
+          {movieData?.map((item, index) => (
             <MovieCard
+              key={index}
               movieData={item}
             />
           ))}

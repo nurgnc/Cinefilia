@@ -9,6 +9,7 @@ import MovieCard from './MovieCard';
 import MovieSearch from './MovieSearch';
 import MoviesToggle from './MoviesToggle';
 import NavbarUserInfo from './NavbarUserInfo';
+import ProfileTable from './ProfileTable';
 import SearchPagination from './SearchPagination';
 import TrendingWidget from './TrendingWidget';
 import ThemeButton from './ThemeButton';
@@ -25,6 +26,7 @@ export {
   MovieSearch,
   MoviesToggle,
   NavbarUserInfo,
+  ProfileTable,
   SearchPagination,
   TrendingWidget,
   ThemeButton,

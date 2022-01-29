@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
@@ -47,8 +48,9 @@ function TrendingWidget() {
 
       </button>
       <Slider {...settingsMainSlider}>
-        {trendingMovie?.map((item) => (
+        {trendingMovie?.map((item, index) => (
           <MovieCard
+            key={index}
             movieData={item}
           />
         ))}

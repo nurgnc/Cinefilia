@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -24,8 +25,8 @@ function MovieRecommendations({ movieId }) {
       <h2>Recommendations</h2>
       <Slider {...settingsMainSlider}>
         {
-          movieRecommendations?.map((item) => (
-            <MovieCard movieData={item} />
+          movieRecommendations?.map((item, index) => (
+            <MovieCard key={index} movieData={item} />
           ))
         }
       </Slider>
