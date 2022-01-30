@@ -47,7 +47,7 @@ function MovieReviews({ movieId }) {
 
       {reviews?.map((item, index) => (
         <CardReview key={index}>
-          <Flex>
+          <Flex flexDirection="row" align="center">
             {isAvatar || <ImgAvatar src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />}
             <h3>{item.author}</h3>
           </Flex>

@@ -20,6 +20,14 @@ function MovieRecommendations({ movieId }) {
   } = useQuery(['movieRecommendations', movieId], () => fetchRecommendations(movieId), {
     select: (data) => data.data.results,
   });
+  if (Array.isArray(movieRecommendations) && !movieRecommendations.length) {
+    return (
+      <>
+        <h2>Reviews</h2>
+        <span>No comments yet...</span>
+      </>
+    );
+  }
   return (
     <>
       <h2>Recommendations</h2>

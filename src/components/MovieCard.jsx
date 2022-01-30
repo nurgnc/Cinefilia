@@ -41,17 +41,19 @@ function MovieCard({ movieData }) {
         <CardImg>
           <img src={noPicture} alt={movieData?.title} />
         </CardImg>
-        <CardBody>
-          <Flex flexDirection="row" justify="space-between" align="center">
-            <LikeAndBookmarkButton
-              id={movieData.id}
-              title={movieData.title}
-              noPicture={noPicture}
-              releaseDate={movieData.release_date}
-              genres={genres}
-            />
-          </Flex>
-          <div>
+      </Link>
+      <CardBody>
+        <Flex flexDirection="row" justify="space-between" align="center">
+          <LikeAndBookmarkButton
+            id={movieData.id}
+            title={movieData.title}
+            noPicture={noPicture}
+            releaseDate={movieData.release_date}
+            genres={genres}
+          />
+        </Flex>
+        <div>
+          <Link to={`/movies/${movieData?.id}`}>
             <MovieLink to={`/movies/${movieData?.id}`}>{movieData?.title}</MovieLink>
             <p>
               <Flex flexDirection="row" justify="flex-start">
@@ -72,9 +74,10 @@ function MovieCard({ movieData }) {
               {movieData.overview && movieData.overview.substring(0, 120)}
               ...
             </p>
-          </div>
-        </CardBody>
-      </Link>
+          </Link>
+        </div>
+      </CardBody>
+
     </StyledCard>
   );
 }

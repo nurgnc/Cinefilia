@@ -16,7 +16,7 @@ function Profile() {
   return (
     <Container>
       <MarginVertical>
-        <Flex>
+        <Flex flexDisrection="row" align="center">
           <div>
             <ImgAvatar src={user.avatarUrl} alt="" />
           </div>

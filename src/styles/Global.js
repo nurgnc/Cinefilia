@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
   }
   a {
     color: #141E61;
+    text-decoration: none;
   }
 }
 `;
