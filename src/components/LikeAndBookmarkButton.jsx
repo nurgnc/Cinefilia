@@ -12,11 +12,8 @@ import { addBookmark, removeBookmark } from '../store/bookmarks';
 function LikeAndBookmarkButton({
   id, title, noPicture, releaseDate, genres,
 }) {
-  const {
-    likes, bookmarks, isLogin, theme,
-  } = useSelector((state) => state);
+  const { likes, bookmarks, isLogin } = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log(theme);
 
   const isLike = likes?.some((item) => item.id === id);
   const isBookmark = bookmarks?.some((item) => item.id === id);
@@ -54,12 +51,14 @@ function LikeAndBookmarkButton({
               ? (
                 <BsBookmarkCheckFill
                   size={25}
+                  color="#141E61"
                   onClick={() => dispatch(removeBookmark(id))}
                 />
               )
               : (
                 <BsBookmarkCheck
                   size={25}
+                  color="#141E61"
                   onClick={() => dispatch(addBookmark(
                     id,
                     title,

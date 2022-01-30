@@ -12,6 +12,10 @@ const GlobalStyles = createGlobalStyle`
   }
   img {
     max-width: 100%;
+  }
+  a {
+    color: #141E61;
+  }
 }
 `;
 

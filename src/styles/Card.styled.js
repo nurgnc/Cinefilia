@@ -79,7 +79,7 @@ export const MovieLink = styled(Link)`
   color: black;
   text-decoration: none;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 30px;
 `;
 
 export const CardReview = styled.div`
@@ -103,4 +103,10 @@ height: auto;
 border-radius: 50%;
 padding: 1rem 15px;
 margin-right: 20px;
+`;
+
+export const ReleaseDate = styled.span`
+ color: #141E61;
+ margin-left: 5px;
+ font-weight: 600;
 `;

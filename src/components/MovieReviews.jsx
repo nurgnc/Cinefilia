@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -44,8 +45,8 @@ function MovieReviews({ movieId }) {
     <>
       <h2>Reviews</h2>
 
-      {reviews?.map((item) => (
-        <CardReview>
+      {reviews?.map((item, index) => (
+        <CardReview key={index}>
           <Flex>
             {isAvatar || <ImgAvatar src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />}
             <h3>{item.author}</h3>
