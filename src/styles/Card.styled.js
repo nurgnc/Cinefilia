@@ -33,7 +33,7 @@ export const CardImg = styled.div`
   transition: all .5s cubic-bezier(.8,.5,.2,1.4);
   & > img {
     border-radius: 15px;
-    object-fit: fill;
+    // object-fit: fill;
     min-height: 450px;
   }
 `;

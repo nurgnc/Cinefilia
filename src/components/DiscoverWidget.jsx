@@ -1,9 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useEffect } from 'react';
 // packages
 import { useQuery } from 'react-query';
 import Slider from 'react-slick';
+// aos
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 // local import
 import { fetchDiscover } from '../api';
 import 'slick-carousel/slick/slick.css';
@@ -15,21 +18,27 @@ import MovieCard from './MovieCard';
 import { MarginVertical } from '../styles/baseStyles';
 
 function DiscoverWidget() {
-  const { data: movieData } = useQuery('discoverMovie', fetchDiscover, {
+  const { data: movieData, isLoading } = useQuery('discoverMovie', fetchDiscover, {
     select: (data) => data.data.results,
   });
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <MarginVertical>
       <h1>Discover</h1>
-      <Slider {...settingsMainSlider}>
-        {movieData?.map((item, index) => (
-          <MovieCard
-            key={index}
-            movieData={item}
-          />
-        ))}
-      </Slider>
+      <div data-aos="fade-right">
+        <Slider {...settingsMainSlider}>
+          {movieData?.map((item, index) => (
+            <MovieCard
+              key={index}
+              movieData={item}
+              isLoading={isLoading}
+            />
+          ))}
+        </Slider>
+      </div>
     </MarginVertical>
   );
 }

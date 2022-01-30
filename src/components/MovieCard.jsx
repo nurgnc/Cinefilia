@@ -21,8 +21,9 @@ import {
 import { fetchGenres, img300 } from '../api';
 // default img
 import defaultImg from '../assets/img/no-img.jpg';
+import loadingGif from '../assets/img/gif.webp';
 
-function MovieCard({ movieData }) {
+function MovieCard({ movieData, isLoading }) {
   const { data: movieGenres } = useQuery(
     'movieGenres',
     fetchGenres,
@@ -39,7 +40,8 @@ function MovieCard({ movieData }) {
     <StyledCard>
       <Link to={`/movies/${movieData?.id}`}>
         <CardImg>
-          <img src={noPicture} alt={movieData?.title} />
+          {isLoading ? <img src={loadingGif} alt="" />
+            : <img src={noPicture} alt={movieData?.title} />}
         </CardImg>
       </Link>
       <CardBody>
@@ -53,15 +55,14 @@ function MovieCard({ movieData }) {
           />
         </Flex>
         <div>
+          <MovieLink to={`/movies/${movieData?.id}`}>{movieData?.title}</MovieLink>
           <Link to={`/movies/${movieData?.id}`}>
-            <MovieLink to={`/movies/${movieData?.id}`}>{movieData?.title}</MovieLink>
-            <p>
-              <Flex flexDirection="row" justify="flex-start">
-                <BsFillCalendar2CheckFill color="#141E61" />
-                {' '}
-                <ReleaseDate>{movieData?.release_date}</ReleaseDate>
-              </Flex>
-            </p>
+
+            <Flex flexDirection="row" justify="flex-start">
+              <BsFillCalendar2CheckFill color="#141E61" />
+              {' '}
+              <ReleaseDate>{movieData?.release_date}</ReleaseDate>
+            </Flex>
             {genres?.map((item, index) => (
               <span key={index}>
                 {' '}

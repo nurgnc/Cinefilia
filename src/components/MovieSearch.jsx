@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// // icons
-// import { AiOutlineCloseCircle } from 'react-icons/ai';
+
 // debounce perform
 import debounce from 'lodash.debounce';
 // components

@@ -3,6 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useLocation } from 'react-router-dom';
+// aos
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import { base, apiKey, fetchGenres } from '../api';
 // css
 import {
@@ -18,6 +21,7 @@ function MovieCategory() {
   const [genreId, setGenreId] = useState('');
   const [fromDate, setFromDate] = useState();
   const [toDate, setToDate] = useState();
+  const [select, setSelect] = useState();
   const movieCat = location?.pathname.split('movie/')[1];
 
   const fetchData = async (cat, id) => await base.get(`/movie/${cat}${apiKey}&with_genres=${id}`).then((response) => {
@@ -52,6 +56,9 @@ function MovieCategory() {
     },
   );
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   useEffect(() => {
     fetchDateToDate(fromDate, toDate);
   }, [fromDate, toDate]);
@@ -96,48 +103,46 @@ function MovieCategory() {
     }
     setFilterData(sortedData);
   }
+  useEffect(() => {
+    if (select === 'a-to-z') {
+      handleSortAlph(false);
+    } else if (select === 'z-to-a') {
+      handleSortAlph(true);
+    } else if (select === 'popularAsc') {
+      handleSortPopularity(false);
+    } else if (select === 'popularDesc') {
+      handleSortPopularity(true);
+    } else if (select === 'dateAsc') {
+      handleSortRelease(false);
+    } else if (select === 'dateDesc') {
+      handleSortRelease(true);
+    }
+  }, [select]);
 
   return (
     <Container>
       <MarginVertical>
         <div>
           <h1>Sort</h1>
-          <select onChange={(e) => console.log(e.target.value)}>
+          <select onChange={(e) => setSelect(e.target.value)}>
+            <option value="sort">Sort By:</option>
             <option value="a-to-z">Movie Title (from A to Z)</option>
             <option value="z-to-a">Movie Title (from Z to A)</option>
-            <option value="most-populars">Most Populars</option>
-            <option value="least-populars">Least Populars</option>
-            <option value="newest">Newest Released</option>
-            <option value="oldest">Oldest Released</option>
+            <option value="popularDesc">Most Populars</option>
+            <option value="popularAsc">Least Populars</option>
+            <option value="dateDesc">Newest Released</option>
+            <option value="dateAsc">Oldest Released</option>
           </select>
           <br />
-          <br />
-          <button type="button" onClick={() => handleSortAlph(false)}>
-            Sorting A - Z
-          </button>
-          <button type="button" onClick={() => handleSortAlph(true)}>
-            Sorting Z - A
-          </button>
-          <button type="button" onClick={() => handleSortPopularity(false)}>
-            Popular Asc
-          </button>
-          <button type="button" onClick={() => handleSortPopularity(true)}>
-            Popular Desc
-          </button>
-          <button type="button" onClick={() => handleSortRelease(false)}>
-            Release Date Asc
-          </button>
-          <button type="button" onClick={() => handleSortRelease(true)}>
-            Release Date Desc
-          </button>
         </div>
         <div>
           <h1>Filter</h1>
           <div>
             <h3>Genres:</h3>
             <Flex>
-              {movieGenres?.map((genre) => (
+              {movieGenres?.map((genre, index) => (
                 <button
+                  key={index}
                   type="button"
                   onClick={() => setGenreId(genre.id)}
                 >
@@ -165,23 +170,25 @@ function MovieCategory() {
           <button type="button" onClick={() => setMovieData(filterData)}>Filter</button>
           <button type="button" onClick={() => setMovieData(movieData)}>Temizle</button>
         </div>
-        <Grid col={4}>
-          {movieData?.map((item, index) => (
-            <MovieCard
-              key={index}
-              movieData={item}
-            />
-          ))}
-          <button
-            type="button"
-            onClick={() => {
-              setPage(page + 1);
-            }}
-          >
-            Load More
+        <MarginVertical data-aos="fade-up">
+          <Grid col={4}>
+            {movieData?.map((item, index) => (
+              <MovieCard
+                key={index}
+                movieData={item}
+              />
+            ))}
+            <button
+              type="button"
+              onClick={() => {
+                setPage(page + 1);
+              }}
+            >
+              Load More
 
-          </button>
-        </Grid>
+            </button>
+          </Grid>
+        </MarginVertical>
       </MarginVertical>
     </Container>
   );

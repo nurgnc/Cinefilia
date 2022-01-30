@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // router
 import { useParams } from 'react-router-dom';
+// aos
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
 import { fetchMovie, img500 } from '../api';
@@ -18,6 +21,10 @@ function MovieDetail() {
   } = useQuery(['movie', movieId], () => fetchMovie(movieId), {
     select: (data) => data.data,
   });
+
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
   return (
     <Container>
@@ -55,13 +62,13 @@ function MovieDetail() {
           </div>
         </Grid>
       </MarginVertical>
-      <MarginVertical>
+      <MarginVertical data-aos="fade-right">
         <MovieCast movieId={movieId} />
       </MarginVertical>
-      <MarginVertical>
+      <MarginVertical data-aos="fade-left">
         <MovieReviews movieId={movieId} />
       </MarginVertical>
-      <MarginVertical>
+      <MarginVertical data-aos="fade-up">
         <MovieRecommendations movieId={movieId} />
       </MarginVertical>
     </Container>

@@ -1,6 +1,9 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+// aos
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
 import { fetchSearch } from '../api';
@@ -20,6 +23,10 @@ function Search({ search }) {
     select: (data) => data.data.results,
   });
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   const totalMovies = searchMovie?.length;
   // get current movies
   const indexOfLastMovie = currentPage * moviesPerPage;
@@ -29,7 +36,7 @@ function Search({ search }) {
   // change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
-    <MarginVertical>
+    <MarginVertical data-aos="fade-up">
       <Grid col={4}>
         {
           currentMovies?.map((item, index) => (

@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 // slider package
 import Slider from 'react-slick';
+// aos
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 // api local
 import { fetchTrending } from '../api';
 // slider local
@@ -19,9 +22,13 @@ import { TimeButton, TrendingContent, TimeButtons } from '../styles/InputsAndBut
 function TrendingWidget() {
   const [time, setTime] = useState('day');
 
-  const { data: movieData } = useQuery(['trendingMovie', time], () => fetchTrending(time), { select: (data) => data.data.results });
+  const { data: movieData, isLoading } = useQuery(['trendingMovie', time], () => fetchTrending(time), { select: (data) => data.data.results });
 
   const [trendingMovie, setTrendingMovie] = useState([]);
+
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
   useEffect(() => {
     setTrendingMovie(movieData);
@@ -54,14 +61,17 @@ function TrendingWidget() {
           </TimeButton>
         </TimeButtons>
       </TrendingContent>
-      <Slider {...settingsMainSlider}>
-        {trendingMovie?.map((item, index) => (
-          <MovieCard
-            key={index}
-            movieData={item}
-          />
-        ))}
-      </Slider>
+      <div data-aos="fade-left">
+        <Slider {...settingsMainSlider}>
+          {trendingMovie?.map((item, index) => (
+            <MovieCard
+              key={index}
+              movieData={item}
+              isLoading={isLoading}
+            />
+          ))}
+        </Slider>
+      </div>
     </MarginVertical>
   );
 }
