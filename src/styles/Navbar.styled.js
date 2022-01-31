@@ -87,6 +87,10 @@ export const LogOutButton = styled.button`
   padding: 5px 8px;
   border: none;
   cursor: pointer;
+  &:hover svg {
+    transition: transform .5s ease-in-out;
+    transform: scale(1.1);
+  }
  `;
 
 export const SearchButton = styled.button`
@@ -97,6 +101,5 @@ export const SearchButton = styled.button`
     &:hover svg {
       transition: transform .5s ease-in-out;
       transform: scale(1.1);
-
     }
- `;
+`;
