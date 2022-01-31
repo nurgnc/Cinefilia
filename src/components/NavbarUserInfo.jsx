@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FiLogOut } from 'react-icons/fi';
 // componets
 import ThemeButton from './ThemeButton';
+import NavbarSearch from './NavbarSearch';
 // css
 import { Grid, Flex } from '../styles/baseStyles';
 import { ImgAvatar } from '../styles/Card.styled';
@@ -26,6 +27,7 @@ function NavbarUserInfo() {
         ? (
           <Flex flexDirection="row" align="center" justify="center" width="10%">
             <Flex flexDirection="row" align="center" justify="center">
+              <NavbarSearch />
               <ThemeButton />
               <LogOutButton onClick={() => dispatch(setLogin(!isLogin))}>
                 <FiLogOut size={25} />
@@ -38,6 +40,7 @@ function NavbarUserInfo() {
         )
         : (
           <Flex flexDirection="row" align="center" justify="center" width="10%">
+            <NavbarSearch />
             <ThemeButton />
             <Link to="/login">
               <ImgAvatar width="100px" src={defaultImg} alt="" />

@@ -69,11 +69,12 @@ export const DropDown = styled.div`
 
 export const ThemeButtons = styled.button`
 border-radius: 70%;
-margin-right: 10px;
+margin: 0 10px;
 padding: 5px 8px;
 border: none;
+cursor: pointer;
 & > svg {
-  transform: ${(props) => (props.theme === 'dark' ? 'rotate(270deg)' : 'rotate(0deg)')}
+  transform: ${(props) => (props.theme === 'dark' ? 'rotate(270deg)' : 'rotate(0deg)')};
 }
 &:hover svg {
   transition: transform .7s ease-in-out;
@@ -82,7 +83,20 @@ border: none;
 
 `;
 export const LogOutButton = styled.button`
- border-radius: 70%;
-padding: 5px 8px;
-border: none;
+  border-radius: 70%;
+  padding: 5px 8px;
+  border: none;
+  cursor: pointer;
+ `;
+
+export const SearchButton = styled.button`
+  border-radius: 70%;
+  padding: 5px 8px;
+  border: none;
+  cursor: pointer;
+    &:hover svg {
+      transition: transform .5s ease-in-out;
+      transform: scale(1.1);
+
+    }
  `;

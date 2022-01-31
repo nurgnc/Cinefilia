@@ -8,6 +8,7 @@ import MovieReviews from './MovieReviews';
 import MovieCard from './MovieCard';
 import MovieSearch from './MovieSearch';
 import MoviesToggle from './MoviesToggle';
+import NavbarSearch from './NavbarSearch';
 import NavbarUserInfo from './NavbarUserInfo';
 import ProfileTable from './ProfileTable';
 import SearchPagination from './SearchPagination';
@@ -25,6 +26,7 @@ export {
   MovieCard,
   MovieSearch,
   MoviesToggle,
+  NavbarSearch,
   NavbarUserInfo,
   ProfileTable,
   SearchPagination,

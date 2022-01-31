@@ -6,7 +6,9 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
+import { BsFillCalendar2CheckFill } from 'react-icons/bs';
 import { fetchMovie, img500 } from '../api';
+// icons
 // css
 import { Container, MarginVertical, Grid } from '../styles/baseStyles';
 // components
@@ -33,8 +35,18 @@ function MovieDetail() {
           <img src={`${img500}${movieData?.poster_path}`} alt="" />
           <div>
             <h1>{movieData?.title}</h1>
+            <p>
+              <span>
+                <BsFillCalendar2CheckFill color="#141E61" />
+                {movieData?.release_date}
+              </span>
+              <span>
+                -----
+                {movieData?.runtime}
+              </span>
+            </p>
             <div>
-              Türler:
+              Genres:
               {movieData?.genres.map((genre) => (
                 <span key={genre.id}>
                   {genre.name}
@@ -42,17 +54,8 @@ function MovieDetail() {
                   {' '}
                 </span>
               ))}
-              <span>
-                ----
-                {movieData?.release_date}
-              </span>
-              <span>
-                -----
-                {movieData?.runtime}
-              </span>
             </div>
             <div>
-              <p>{movieData?.tagline}</p>
               <p>{movieData?.overview}</p>
             </div>
             <div>
