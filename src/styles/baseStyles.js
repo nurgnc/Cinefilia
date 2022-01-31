@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import bg from '../assets/img/bg-8.jpg';
 
 export const ContainerFluid = styled.div`
   width: 100%;
@@ -23,6 +22,14 @@ export const Flex = styled.div`
   align-items: ${(props) => props.align};
   justify-content: ${(props) => props.justify};
   width: ${(props) => props.width};
+  margin-right: ${(props) => props.mr};
+  margin-left: ${(props) => props.ml};
+  margin-top: ${(props) => props.mt};
+  margin-bottom: ${(props) => props.mb};
+  padding-right: ${(props) => props.pr};
+  padding-left: ${(props) => props.pl};
+  padding-top: ${(props) => props.pt};
+  padding-bottom: ${(props) => props.pb};
   & > ul {
     flex: 1;
   }
@@ -44,7 +51,6 @@ export const Grid = styled.div`
 `;
 
 export const HomeWrapper = styled.div`
-  // background-image: url(${bg});
   // background-position: center;
   // background-repeat: no-repeat;
   // background-size: cover;

@@ -3,14 +3,19 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useLocation } from 'react-router-dom';
-// aos
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+// icons
+import { BiSearchAlt } from 'react-icons/bi';
+import { FiLoader } from 'react-icons/fi';
 import { base, apiKey, fetchGenres } from '../api';
 // css
 import {
-  Container, MarginVertical, Grid, Flex, Width,
+  Container, MarginVertical, Grid, Flex, Width, Margin,
 } from '../styles/baseStyles';
+import {
+  FilterContent, SortContent, GenreButton, FilterButton, DateInput, LoadButton,
+} from '../styles/SortFilter.styled';
+import { GrayText } from '../styles/Detail.styled';
+// component
 import { MovieCard } from '../components';
 
 function MovieCategory() {
@@ -56,9 +61,6 @@ function MovieCategory() {
     },
   );
 
-  useEffect(() => {
-    Aos.init({ duration: 2000 });
-  }, []);
   useEffect(() => {
     fetchDateToDate(fromDate, toDate);
   }, [fromDate, toDate]);
@@ -122,66 +124,88 @@ function MovieCategory() {
   return (
     <Container>
       <MarginVertical>
-        <Flex flexDirection="row" justify="flex-start" align="start">
+        <Flex flexDirection="row" justify="space-between" align="start">
           <Width value="30%">
-            <select onChange={(e) => setSelect(e.target.value)}>
-              <option value="sort">Sort By:</option>
-              <option value="a-to-z">Movie Title (from A to Z)</option>
-              <option value="z-to-a">Movie Title (from Z to A)</option>
-              <option value="popularDesc">Most Populars</option>
-              <option value="popularAsc">Least Populars</option>
-              <option value="dateDesc">Newest Released</option>
-              <option value="dateAsc">Oldest Released</option>
-            </select>
-            <br />
-            <div>
+            <SortContent>
+              <h3>Sort By:</h3>
+              <select onChange={(e) => setSelect(e.target.value)}>
+                <option value="sort">Select</option>
+                <option value="a-to-z">Movie Title (from A to Z)</option>
+                <option value="z-to-a">Movie Title (from Z to A)</option>
+                <option value="popularDesc">Most Populars</option>
+                <option value="popularAsc">Least Populars</option>
+                <option value="dateDesc">Newest Released</option>
+                <option value="dateAsc">Oldest Released</option>
+              </select>
+            </SortContent>
+            <FilterContent>
+              <h3>Filter By:</h3>
+              <Margin mb="1em">
+                <Flex flexDirection="row" align="center" justify="space-between" width="70%" mb=".8em">
+                  <GrayText>From :</GrayText>
+                  <DateInput
+                    type="date"
+                    id="from_date"
+                    name="from_date"
+                    onChange={(e) => setFromDate(e.target.value)}
+                  />
+                </Flex>
+                <Flex flexDirection="row" align="center" justify="space-between" width="70%">
+                  <GrayText>To :</GrayText>
+                  <DateInput
+                    type="date"
+                    id="to_date"
+                    name="to_date"
+                    onChange={(e) => setToDate(e.target.value)}
+                  />
+                </Flex>
+              </Margin>
               <div>
                 {movieGenres?.map((genre, index) => (
-                  <button
+                  <GenreButton
                     key={index}
                     type="button"
+                    active={genre.id === genreId ? 'active' : ''}
                     onClick={() => setGenreId(genre.id)}
                   >
                     {genre.name}
-
-                  </button>
+                  </GenreButton>
                 ))}
               </div>
-              <br />
-              <br />
-              Date:
-              <input
-                type="date"
-                id="from_date"
-                name="from_date"
-                onChange={(e) => setFromDate(e.target.value)}
-              />
-              <input
-                type="date"
-                id="to_date"
-                name="to_date"
-                onChange={(e) => setToDate(e.target.value)}
-              />
-            </div>
-            <button type="button" onClick={() => setMovieData(filterData)}>Filter</button>
+
+            </FilterContent>
+            <FilterButton type="button" onClick={() => setMovieData(filterData)}>
+              <Flex flexDirection="row" align="center" justify="center">
+                <BiSearchAlt size={25} />
+                {' '}
+                Search
+              </Flex>
+
+            </FilterButton>
           </Width>
-          <Grid col={3} data-aos="fade-up">
-            {movieData?.map((item, index) => (
-              <MovieCard
-                key={index}
-                movieData={item}
-              />
-            ))}
-            <button
+          <Flex flexDirection="column" align="center" justify="center">
+            <Grid col={3}>
+              {movieData?.map((item, index) => (
+                <MovieCard
+                  key={index}
+                  movieData={item}
+                />
+              ))}
+
+            </Grid>
+
+            <LoadButton
               type="button"
               onClick={() => {
                 setPage(page + 1);
               }}
             >
-              Load More
-
-            </button>
-          </Grid>
+              <Flex flexDirection="row" align="center" justify="center">
+                <FiLoader size={25} />
+                Load More
+              </Flex>
+            </LoadButton>
+          </Flex>
         </Flex>
       </MarginVertical>
     </Container>
