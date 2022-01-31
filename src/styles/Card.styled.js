@@ -31,6 +31,7 @@ export const CardImg = styled.div`
   width: 100%;
   height:100%;
   transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+  box-shadow: 0px 2px 3px rgba(0,0,0,.3);
   & > img {
     border-radius: 15px;
     // object-fit: fill;
@@ -48,15 +49,11 @@ export const StyledCard = styled.div`
   position: relative;
   cursor: pointer;
   align-items: center;
-  background-color: #fff;
   border-radius: 15px;
-  padding: 20px auto;
   max-width: 300px;
   height: 440px;
   flex-direction: column;
-  box-shadow: 0px 2px 3px rgba(0,0,0,.3);
   &:hover {
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     transition: all .5s cubic-bezier(.8,.5,.2,1.4);
     
     transform: scale(.97);
@@ -84,13 +81,14 @@ export const MovieLink = styled(Link)`
 `;
 
 export const CardReview = styled.div`
+width: 45%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
   align-items: flex-start;
 background-color: #fff;
   border-radius: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid #9D9D9D;
   margin: 20px auto;
 `;
 

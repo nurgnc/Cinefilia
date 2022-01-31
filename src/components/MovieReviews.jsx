@@ -7,7 +7,8 @@ import { useQuery } from 'react-query';
 import { fetchReviews, img300, defaultImg } from '../api';
 // css
 import { CardReview, ImgAvatar, CardReviewBody } from '../styles/Card.styled';
-import { Flex } from '../styles/baseStyles';
+import { Container, Flex } from '../styles/baseStyles';
+import { LineTitle } from '../styles/Detail.styled';
 
 function MovieReviews({ movieId }) {
   const {
@@ -16,8 +17,8 @@ function MovieReviews({ movieId }) {
     select: (data) => data.data.results,
   });
 
-  const reviews = movieReviews?.slice(0, 1);
-  const avatar = reviews?.filter((item) => item.author_details.avatar_path?.includes('http')).map((img) => (
+  const reviews = movieReviews?.slice(0, 2);
+  const avatar = reviews?.slice(0, 1)?.filter((item) => item.author_details.avatar_path?.includes('gravatar')).map((img) => (
     // eslint-disable-next-line max-len
     <ImgAvatar
       width="150px"
@@ -28,36 +29,44 @@ function MovieReviews({ movieId }) {
     />
   ));
 
+  console.log('avatar', avatar);
+
   const isAvatar = avatar?.length === 0 ? (
     <ImgAvatar
+      width="150px"
       src={defaultImg}
     />
   ) : avatar;
+  console.log('isAvatar', isAvatar);
 
   if (Array.isArray(movieReviews) && !movieReviews.length) {
     return (
-      <>
-        <h2>Reviews</h2>
+      <Container>
+        <LineTitle>Reviews</LineTitle>
         <span>No comments yet...</span>
-      </>
+      </Container>
     );
   }
   return (
-    <>
-      <h2>Reviews</h2>
-
-      {reviews?.map((item, index) => (
-        <CardReview key={index}>
-          <Flex flexDirection="row" align="center">
-            {isAvatar || <ImgAvatar width="150px" src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />}
-            <h3>{item.author}</h3>
-          </Flex>
-          <CardReviewBody>
-            <p>{item.content}</p>
-          </CardReviewBody>
-        </CardReview>
-      ))}
-    </>
+    <Container>
+      <LineTitle>Reviews</LineTitle>
+      <Flex flexDirection="row" align="center" justify="space-between">
+        {reviews?.map((item, index) => (
+          <CardReview key={index}>
+            <Flex flexDirection="row" align="center">
+              {isAvatar || (<ImgAvatar width="150px" src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />)}
+              <h3>{item.author}</h3>
+            </Flex>
+            <CardReviewBody>
+              <p>
+                {item.content && item.content.substring(0, 500)}
+                ...
+              </p>
+            </CardReviewBody>
+          </CardReview>
+        ))}
+      </Flex>
+    </Container>
   );
 }
 

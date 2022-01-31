@@ -12,9 +12,11 @@ import { BsFillCalendar2CheckFill } from 'react-icons/bs';
 import { fetchMovie, img500 } from '../api';
 // css
 import {
-  Container, MarginVertical, Grid, Margin,
+  Container, MarginVertical, Margin, Flex, BgContent,
 } from '../styles/baseStyles';
-import { Genre } from '../styles/Detail.styled';
+import {
+  Genre, OverView, Poster, GrayText,
+} from '../styles/Detail.styled';
 // components
 import {
   MovieCast, MovieRecommendations, MovieReviews, MovieCrew,
@@ -28,60 +30,70 @@ function MovieDetail() {
     select: (data) => data.data,
   });
 
-  const randomColor = [...Array(10)].map((item, index) => (
+  const randomColor = [...Array(5)].map((item, index) => (
     Math.floor(Math.random(index) * 16777215).toString(16)
   ));
-
-  console.log(randomColor);
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
   return (
-    <Container>
-      <MarginVertical>
-        <Grid col={2}>
-          <img src={`${img500}${movieData?.poster_path}`} alt="" />
-          <div>
-            <h1>{movieData?.title}</h1>
-            <p>
-              <span>
-                <BsFillCalendar2CheckFill color="#141E61" />
-                {movieData?.release_date}
-              </span>
-              <span>
-                <BiTimeFive />
-                {movieData?.runtime}
-              </span>
-            </p>
-            <Margin mb="2rem" mt="2rem">
-              {movieData?.genres.map((genre, index) => (
-                <Genre randomBg={`#${randomColor[index]}`} key={genre.id}>
-                  {genre.name}
-                </Genre>
-              ))}
-            </Margin>
+    <>
+      <Container>
+        <MarginVertical>
+          <Flex flexDirection="row" align="start" justify="space-around">
             <div>
-              <p>{movieData?.overview}</p>
+              <Poster src={`${img500}${movieData?.poster_path}`} alt="" />
             </div>
-            <div>
-              <MovieCrew randomColor={randomColor} movieId={movieId} />
-            </div>
-            <div />
-          </div>
-        </Grid>
-      </MarginVertical>
-      <MarginVertical data-aos="fade-right">
+            <Flex flexDirection="column" align="start" justify="space-between" width="50%">
+              <h1>{movieData?.title}</h1>
+              <Flex flexDirection="row" align="center" justify="space-between" width="35%">
+                <Flex flexDirection="row" align="center" justify="space-between" width="50%">
+                  <BsFillCalendar2CheckFill color="#686D76" />
+                  <GrayText>
+                    {movieData?.release_date}
+                  </GrayText>
+                </Flex>
+                <Flex flexDirection="row" align="center" justify="space-between" width="20%">
+                  <BiTimeFive size={20} color="#686D76" />
+                  <GrayText>
+                    {movieData?.runtime}
+                  </GrayText>
+                </Flex>
+              </Flex>
+              <Margin mb="2rem" mt="2rem">
+                {movieData?.genres.map((genre, index) => (
+                  <Genre randomBg={`#${randomColor[index]}`} key={genre.id}>
+                    {genre.name}
+                  </Genre>
+                ))}
+              </Margin>
+              <div>
+                <OverView>
+                  <blockquote>
+                    {movieData?.overview}
+                  </blockquote>
+                </OverView>
+              </div>
+              <div>
+                <MovieCrew randomColor={randomColor} movieId={movieId} />
+              </div>
+              <div />
+            </Flex>
+          </Flex>
+        </MarginVertical>
+      </Container>
+      <BgContent bgColor="#F4F6FF">
         <MovieCast movieId={movieId} />
-      </MarginVertical>
+      </BgContent>
       <MarginVertical data-aos="fade-left">
         <MovieReviews movieId={movieId} />
       </MarginVertical>
       <MarginVertical data-aos="fade-up">
         <MovieRecommendations movieId={movieId} />
       </MarginVertical>
-    </Container>
+    </>
   );
 }
 

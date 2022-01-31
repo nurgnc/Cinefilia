@@ -13,6 +13,9 @@ import MovieCard from './MovieCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { settingsMainSlider } from './SliderSettings';
+// css
+import { Container } from '../styles/baseStyles';
+import { LineTitle } from '../styles/Detail.styled';
 
 function MovieRecommendations({ movieId }) {
   const {
@@ -22,15 +25,15 @@ function MovieRecommendations({ movieId }) {
   });
   if (Array.isArray(movieRecommendations) && !movieRecommendations.length) {
     return (
-      <>
-        <h2>Reviews</h2>
+      <Container>
+        <LineTitle>Reviews</LineTitle>
         <span>No comments yet...</span>
-      </>
+      </Container>
     );
   }
   return (
-    <>
-      <h2>Recommendations</h2>
+    <Container>
+      <LineTitle>Recommendations</LineTitle>
       <Slider {...settingsMainSlider}>
         {
           movieRecommendations?.map((item, index) => (
@@ -38,7 +41,7 @@ function MovieRecommendations({ movieId }) {
           ))
         }
       </Slider>
-    </>
+    </Container>
   );
 }
 

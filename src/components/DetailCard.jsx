@@ -4,6 +4,7 @@ import {
   StyledCard,
   CardImg,
   CardBody,
+  GrayText,
 } from '../styles/Detail.styled';
 import { img300, defaultImg } from '../api';
 
@@ -17,8 +18,13 @@ function DetailCard({
         <img src={noPicture} alt={originalName} />
       </CardImg>
       <CardBody>
-        <h4>{characterName}</h4>
-        <h5>{originalName}</h5>
+        <GrayText>
+          {characterName}
+          {' '}
+          (
+          {originalName}
+          )
+        </GrayText>
       </CardBody>
     </StyledCard>
   );

@@ -71,3 +71,8 @@ padding-left: ${(props) => props.pl};
 padding-top: ${(props) => props.pt};
 padding-bottom: ${(props) => props.pb};
 `;
+
+export const BgContent = styled.div`
+background-color: ${(props) => props.bgColor};
+padding: 2em 0;
+`;

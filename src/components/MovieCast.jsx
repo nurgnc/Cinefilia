@@ -1,8 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // slider package
 import Slider from 'react-slick';
+// aos
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
 import { fetchCredit } from '../api';
@@ -12,6 +15,9 @@ import DetailCard from './DetailCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { settingsActorSlider } from './SliderSettings';
+// css
+import { Container } from '../styles/baseStyles';
+import { LineTitle } from '../styles/Detail.styled';
 
 function MovieCast({ movieId }) {
   const {
@@ -19,9 +25,15 @@ function MovieCast({ movieId }) {
   } = useQuery(['movieCast', movieId], () => fetchCredit(movieId), {
     select: (data) => data.data.cast,
   });
+
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
-    <>
-      <h2>Actors</h2>
+    <Container data-aos="fade-right">
+      <LineTitle>
+        Actors
+      </LineTitle>
       <Slider {...settingsActorSlider}>
         {
           // eslint-disable-next-line react/prop-types
@@ -36,7 +48,7 @@ function MovieCast({ movieId }) {
           ))
         }
       </Slider>
-    </>
+    </Container>
   );
 }
 
