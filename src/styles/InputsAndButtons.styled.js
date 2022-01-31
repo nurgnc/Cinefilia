@@ -11,6 +11,7 @@ border-radius: 15px;
 width: 100%;
 padding: 5px 15px;
 box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+background: #fff;
 `;
 export const SearchInput = styled.input`
 border: none;

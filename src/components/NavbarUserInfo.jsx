@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // redux
 import { useSelector, useDispatch } from 'react-redux';
 // icons
-import { FiLogOut } from 'react-icons/fi';
+import { AiOutlineLogout } from 'react-icons/ai';
 // componets
 import ThemeButton from './ThemeButton';
 import NavbarSearch from './NavbarSearch';
@@ -30,7 +30,7 @@ function NavbarUserInfo() {
               <NavbarSearch />
               <ThemeButton />
               <LogOutButton onClick={() => dispatch(setLogin(!isLogin))}>
-                <FiLogOut size={25} />
+                <AiOutlineLogout size={25} />
               </LogOutButton>
             </Flex>
             <Link to="/profile">

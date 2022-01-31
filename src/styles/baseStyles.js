@@ -22,6 +22,7 @@ export const Flex = styled.div`
   align-items: ${(props) => props.align};
   justify-content: ${(props) => props.justify};
   width: ${(props) => props.width};
+  height: ${(props) => props.height};
   margin-right: ${(props) => props.mr};
   margin-left: ${(props) => props.ml};
   margin-top: ${(props) => props.mt};
