@@ -10,7 +10,7 @@ import { VscDebugBreakpointLog } from 'react-icons/vsc';
 // components
 import LikeAndBookmarkButton from './LikeAndBookmarkButton';
 // css
-import { Flex } from '../styles/baseStyles';
+import { Flex, Margin } from '../styles/baseStyles';
 import {
   StyledCard,
   MovieLink,
@@ -59,9 +59,11 @@ function MovieCard({ movieData, isLoading }) {
           <Link to={`/movies/${movieData?.id}`}>
 
             <Flex flexDirection="row" justify="flex-start">
-              <BsFillCalendar2CheckFill color="#141E61" />
-              {' '}
-              <ReleaseDate>{movieData?.release_date}</ReleaseDate>
+              <Margin mb="1rem" mt="1rem">
+                <BsFillCalendar2CheckFill color="#141E61" />
+                {' '}
+                <ReleaseDate>{movieData?.release_date}</ReleaseDate>
+              </Margin>
             </Flex>
             {genres?.map((item, index) => (
               <span key={index}>

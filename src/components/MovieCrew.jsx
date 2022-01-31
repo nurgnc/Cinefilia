@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 import { fetchCredit } from '../api';
 // css
-import { Grid } from '../styles/baseStyles';
+import { Grid, MarginVertical } from '../styles/baseStyles';
+import { CrewElement } from '../styles/Detail.styled';
 
-function MovieCrew({ movieId }) {
+function MovieCrew({ movieId, randomColor }) {
   const {
     data: movieCrew,
   } = useQuery(['movieCredits', movieId], () => fetchCredit(movieId), {
@@ -15,28 +16,29 @@ function MovieCrew({ movieId }) {
 
   const crew = movieCrew?.slice(0, 3);
   return (
-    <>
-      <h3>Crew</h3>
+    <MarginVertical>
       <Grid col={3}>
         {
-          crew?.map((item) => (
-            <div>
+          crew?.map((item, index) => (
+            <CrewElement randomBorder={`#${randomColor[index]}`}>
               <h4>{item.name}</h4>
               <span>{item.job}</span>
-            </div>
+            </CrewElement>
           ))
         }
       </Grid>
-    </>
+    </MarginVertical>
 
   );
 }
 
 MovieCrew.propTypes = {
   movieId: PropTypes.number,
+  randomColor: PropTypes.shape,
 
 };
 MovieCrew.defaultProps = {
   movieId: '',
+  randomColor: [],
 };
 export default MovieCrew;

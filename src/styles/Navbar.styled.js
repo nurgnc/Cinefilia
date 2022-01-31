@@ -77,7 +77,7 @@ cursor: pointer;
   transform: ${(props) => (props.theme === 'dark' ? 'rotate(270deg)' : 'rotate(0deg)')};
 }
 &:hover svg {
-  transition: transform .7s ease-in-out;
+  transition: transform .7s linear;
   transform: ${(props) => (props.theme === 'dark' ? 'rotate(0deg)' : 'rotate(270deg)')}
 }
 

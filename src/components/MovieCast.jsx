@@ -41,7 +41,7 @@ function MovieCast({ movieId }) {
 }
 
 MovieCast.propTypes = {
-  movieId: PropTypes.number,
+  movieId: PropTypes.string,
 
 };
 MovieCast.defaultProps = {

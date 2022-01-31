@@ -6,11 +6,15 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
+// icons
+import { BiTimeFive } from 'react-icons/bi';
 import { BsFillCalendar2CheckFill } from 'react-icons/bs';
 import { fetchMovie, img500 } from '../api';
-// icons
 // css
-import { Container, MarginVertical, Grid } from '../styles/baseStyles';
+import {
+  Container, MarginVertical, Grid, Margin,
+} from '../styles/baseStyles';
+import { Genre } from '../styles/Detail.styled';
 // components
 import {
   MovieCast, MovieRecommendations, MovieReviews, MovieCrew,
@@ -23,6 +27,12 @@ function MovieDetail() {
   } = useQuery(['movie', movieId], () => fetchMovie(movieId), {
     select: (data) => data.data,
   });
+
+  const randomColor = [...Array(10)].map((item, index) => (
+    Math.floor(Math.random(index) * 16777215).toString(16)
+  ));
+
+  console.log(randomColor);
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -41,25 +51,22 @@ function MovieDetail() {
                 {movieData?.release_date}
               </span>
               <span>
-                -----
+                <BiTimeFive />
                 {movieData?.runtime}
               </span>
             </p>
-            <div>
-              Genres:
-              {movieData?.genres.map((genre) => (
-                <span key={genre.id}>
+            <Margin mb="2rem" mt="2rem">
+              {movieData?.genres.map((genre, index) => (
+                <Genre randomBg={`#${randomColor[index]}`} key={genre.id}>
                   {genre.name}
-                  ,
-                  {' '}
-                </span>
+                </Genre>
               ))}
-            </div>
+            </Margin>
             <div>
               <p>{movieData?.overview}</p>
             </div>
             <div>
-              <MovieCrew movieId={movieId} />
+              <MovieCrew randomColor={randomColor} movieId={movieId} />
             </div>
             <div />
           </div>

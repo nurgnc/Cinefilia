@@ -57,3 +57,17 @@ export const Width = styled.div`
     width: 100%;
   }
 `;
+
+export const Margin = styled.div`
+margin-right: ${(props) => props.mr};
+margin-left: ${(props) => props.ml};
+margin-top: ${(props) => props.mt};
+margin-bottom: ${(props) => props.mb};
+`;
+
+export const Padding = styled.div`
+padding-right: ${(props) => props.pr};
+padding-left: ${(props) => props.pl};
+padding-top: ${(props) => props.pt};
+padding-bottom: ${(props) => props.pb};
+`;

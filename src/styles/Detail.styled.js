@@ -34,3 +34,25 @@ export const StyledCard = styled.div`
     flex-direction: column;
   }
 `;
+
+export const Genre = styled.button`
+background-color: ${(props) => props.randomBg};
+border: none;
+padding: 8px 10px;
+margin-right: 10px;
+border-radius: 10px;
+color: cornsilk;
+font-weight: 600;
+`;
+
+export const CrewElement = styled.div`
+border: 2px solid;
+border-color: ${(props) => props.randomBorder};
+padding: 8px 10px;
+border-radius: 10px;
+text-align: center;
+&:hover {
+background-color: ${(props) => props.randomBorder};
+color: #fff;
+}
+`;

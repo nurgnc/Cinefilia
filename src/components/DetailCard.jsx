@@ -4,7 +4,7 @@ import {
   StyledCard,
   CardImg,
   CardBody,
-} from '../styles/DetailCard.styled';
+} from '../styles/Detail.styled';
 import { img300, defaultImg } from '../api';
 
 function DetailCard({

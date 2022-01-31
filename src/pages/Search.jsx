@@ -48,6 +48,7 @@ function Search({ search }) {
         moviesPerPage={moviesPerPage}
         totalMovies={totalMovies}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </MarginVertical>
   );

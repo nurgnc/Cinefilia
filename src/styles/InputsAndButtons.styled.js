@@ -54,3 +54,33 @@ flex-direction: row;
 align-items: center;
 justify-content: space-between;
  `;
+
+export const PageButton = styled.button`
+ border: 1px solid;
+ border-color: ${({ theme }) => theme.border};
+ padding: 5px 10px;
+ border-radius: 5px;
+ cursor: pointer;
+ color: ${(props) => (props.active === 'active' ? '#fff' : props.theme.border)};
+ background: ${(props) => (props.active === 'active' ? props.theme.border : '#fff')};
+ margin: 1rem 1rem;
+ font-weight: 600;
+    &:hover {
+        background: ${({ theme }) => theme.border};
+        color: #fff;
+    }
+ `;
+
+export const Paginate = styled.ul`
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+list-style: none;
+width: 100%;
+padding-left: 0;
+margin-top: 2rem;
+& > li > svg {
+fill: ${({ theme }) => theme.border};
+}
+`;
