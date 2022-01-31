@@ -4,6 +4,8 @@ import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md';
 // redux
 import { useSelector, useDispatch } from 'react-redux';
 import { setTheme } from '../store/theme';
+// css
+import { ThemeButtons } from '../styles/Navbar.styled';
 
 function ThemeButton() {
   const dispatch = useDispatch();
@@ -11,13 +13,13 @@ function ThemeButton() {
   return (
     <section>
       {theme === 'dark' ? (
-        <button type="button" onClick={() => dispatch(setTheme('light'))}>
+        <ThemeButtons type="button" theme={theme} onClick={() => dispatch(setTheme('light'))}>
           <MdOutlineDarkMode size={25} />
-        </button>
+        </ThemeButtons>
       ) : (
-        <button type="button" onClick={() => dispatch(setTheme('dark'))}>
+        <ThemeButtons type="button" theme={theme} onClick={() => dispatch(setTheme('dark'))}>
           <MdDarkMode size={25} />
-        </button>
+        </ThemeButtons>
       )}
     </section>
   );

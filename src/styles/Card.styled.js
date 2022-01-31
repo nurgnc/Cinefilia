@@ -54,10 +54,11 @@ export const StyledCard = styled.div`
   max-width: 300px;
   height: 440px;
   flex-direction: column;
+  box-shadow: 0px 2px 3px rgba(0,0,0,.3);
   &:hover {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     transition: all .5s cubic-bezier(.8,.5,.2,1.4);
-    box-shadow: 0px 2px 3px rgba(0,0,0,.3);
+    
     transform: scale(.97);
   }
   &:hover ${CardBody} {
@@ -98,7 +99,7 @@ padding: 0px 15px 10px;
 `;
 
 export const ImgAvatar = styled.img`
-max-width: 120px;
+min-width: ${(props) => props.width};
 height: auto;
 border-radius: 50%;
 padding: 1rem 15px;

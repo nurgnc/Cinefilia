@@ -22,10 +22,11 @@ export const Flex = styled.div`
   flex-direction: ${(props) => props.flexDirection};
   align-items: ${(props) => props.align};
   justify-content: ${(props) => props.justify};
+  width: ${(props) => props.width};
   & > ul {
     flex: 1;
   }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
   }
@@ -34,7 +35,12 @@ export const Flex = styled.div`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(${(props) => props.col}, 5fr);
-  grid-gap: 15px;
+  grid-gap: 30px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 5fr);
+    grid-gap: 15px;
+    text-align: center;
+  }
 `;
 
 export const HomeWrapper = styled.div`
@@ -43,4 +49,11 @@ export const HomeWrapper = styled.div`
   // background-repeat: no-repeat;
   // background-size: cover;
   // height: 61rem;
+`;
+
+export const Width = styled.div`
+  width: ${(props) => props.value};
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;

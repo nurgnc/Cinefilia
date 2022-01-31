@@ -34,3 +34,55 @@ export const Logo = styled.img`
     margin-bottom: 40px;
   }
 `;
+
+export const DropDownList = styled.div`
+  display: ${(props) => props.display};
+  top: 4.4rem;
+  width: 8rem;
+  position: absolute;
+  transition: all 0.15s linear;
+  background-color: rgba(255,255,255,.9);
+  padding: 5px 15px;;
+  border-radius: 0 0 5px 5px;
+  z-index: 10;
+  & > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  }
+`;
+
+export const DropDown = styled.div`
+  width: 8rem;
+  background-color: rgba(255,255,255,.7);
+  padding: 5px 15px;;
+  border-radius: 5px 5px 0 0;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  }
+`;
+
+export const ThemeButtons = styled.button`
+border-radius: 70%;
+margin-right: 10px;
+padding: 5px 8px;
+border: none;
+& > svg {
+  transform: ${(props) => (props.theme === 'dark' ? 'rotate(270deg)' : 'rotate(0deg)')}
+}
+&:hover svg {
+  transition: transform .7s ease-in-out;
+  transform: ${(props) => (props.theme === 'dark' ? 'rotate(0deg)' : 'rotate(270deg)')}
+}
+
+`;
+export const LogOutButton = styled.button`
+ border-radius: 70%;
+padding: 5px 8px;
+border: none;
+ `;

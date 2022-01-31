@@ -9,7 +9,7 @@ import 'aos/dist/aos.css';
 import { base, apiKey, fetchGenres } from '../api';
 // css
 import {
-  Container, MarginVertical, Grid, Flex,
+  Container, MarginVertical, Grid, Flex, Width,
 } from '../styles/baseStyles';
 import { MovieCard } from '../components';
 
@@ -122,56 +122,50 @@ function MovieCategory() {
   return (
     <Container>
       <MarginVertical>
-        <div>
-          <h1>Sort</h1>
-          <select onChange={(e) => setSelect(e.target.value)}>
-            <option value="sort">Sort By:</option>
-            <option value="a-to-z">Movie Title (from A to Z)</option>
-            <option value="z-to-a">Movie Title (from Z to A)</option>
-            <option value="popularDesc">Most Populars</option>
-            <option value="popularAsc">Least Populars</option>
-            <option value="dateDesc">Newest Released</option>
-            <option value="dateAsc">Oldest Released</option>
-          </select>
-          <br />
-        </div>
-        <div>
-          <h1>Filter</h1>
-          <div>
-            <h3>Genres:</h3>
-            <Flex>
-              {movieGenres?.map((genre, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => setGenreId(genre.id)}
-                >
-                  {genre.name}
+        <Flex flexDirection="row" justify="flex-start" align="start">
+          <Width value="30%">
+            <select onChange={(e) => setSelect(e.target.value)}>
+              <option value="sort">Sort By:</option>
+              <option value="a-to-z">Movie Title (from A to Z)</option>
+              <option value="z-to-a">Movie Title (from Z to A)</option>
+              <option value="popularDesc">Most Populars</option>
+              <option value="popularAsc">Least Populars</option>
+              <option value="dateDesc">Newest Released</option>
+              <option value="dateAsc">Oldest Released</option>
+            </select>
+            <br />
+            <div>
+              <div>
+                {movieGenres?.map((genre, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setGenreId(genre.id)}
+                  >
+                    {genre.name}
 
-                </button>
-              ))}
-            </Flex>
-            <br />
-            <br />
-            Date:
-            <input
-              type="date"
-              id="from_date"
-              name="from_date"
-              onChange={(e) => setFromDate(e.target.value)}
-            />
-            <input
-              type="date"
-              id="to_date"
-              name="to_date"
-              onChange={(e) => setToDate(e.target.value)}
-            />
-          </div>
-          <button type="button" onClick={() => setMovieData(filterData)}>Filter</button>
-          <button type="button" onClick={() => setMovieData(movieData)}>Temizle</button>
-        </div>
-        <MarginVertical data-aos="fade-up">
-          <Grid col={4}>
+                  </button>
+                ))}
+              </div>
+              <br />
+              <br />
+              Date:
+              <input
+                type="date"
+                id="from_date"
+                name="from_date"
+                onChange={(e) => setFromDate(e.target.value)}
+              />
+              <input
+                type="date"
+                id="to_date"
+                name="to_date"
+                onChange={(e) => setToDate(e.target.value)}
+              />
+            </div>
+            <button type="button" onClick={() => setMovieData(filterData)}>Filter</button>
+          </Width>
+          <Grid col={3} data-aos="fade-up">
             {movieData?.map((item, index) => (
               <MovieCard
                 key={index}
@@ -188,7 +182,7 @@ function MovieCategory() {
 
             </button>
           </Grid>
-        </MarginVertical>
+        </Flex>
       </MarginVertical>
     </Container>
   );

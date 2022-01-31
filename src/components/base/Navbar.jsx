@@ -1,6 +1,6 @@
 import React from 'react';
 // components
-import { ThemeButton, MoviesToggle, NavbarUserInfo } from '../index';
+import { MoviesToggle, NavbarUserInfo } from '../index';
 // css
 import { ContainerFluid, Flex } from '../../styles/baseStyles';
 import { Nav, StyledLink } from '../../styles/Navbar.styled';
@@ -17,7 +17,6 @@ function Navbar() {
         </>
 
         <Flex>
-          <ThemeButton />
           <NavbarUserInfo />
         </Flex>
       </Nav>

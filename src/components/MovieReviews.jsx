@@ -20,6 +20,7 @@ function MovieReviews({ movieId }) {
   const avatar = reviews?.filter((item) => item.author_details.avatar_path?.includes('http')).map((img) => (
     // eslint-disable-next-line max-len
     <ImgAvatar
+      width="150px"
       src={img.author_details.avatar_path
         // eslint-disable-next-line no-unsafe-optional-chaining
         .slice(1, img.author_details.avatar_path?.length + 1)}
@@ -48,7 +49,7 @@ function MovieReviews({ movieId }) {
       {reviews?.map((item, index) => (
         <CardReview key={index}>
           <Flex flexDirection="row" align="center">
-            {isAvatar || <ImgAvatar src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />}
+            {isAvatar || <ImgAvatar width="150px" src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />}
             <h3>{item.author}</h3>
           </Flex>
           <CardReviewBody>

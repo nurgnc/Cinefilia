@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 // icons
 import { FiLogOut } from 'react-icons/fi';
+// componets
+import ThemeButton from './ThemeButton';
 // css
-import { Grid } from '../styles/baseStyles';
+import { Grid, Flex } from '../styles/baseStyles';
 import { ImgAvatar } from '../styles/Card.styled';
+import { LogOutButton } from '../styles/Navbar.styled';
 // default img
 import { defaultImg } from '../api';
 import { setLogin } from '../store/user';
@@ -18,22 +21,28 @@ function NavbarUserInfo() {
   } = useSelector((state) => state);
 
   return (
-    <Grid col={2}>
+    <Grid>
       {isLogin
         ? (
-          <div>
+          <Flex flexDirection="row" align="center" justify="center" width="10%">
+            <Flex flexDirection="row" align="center" justify="center">
+              <ThemeButton />
+              <LogOutButton onClick={() => dispatch(setLogin(!isLogin))}>
+                <FiLogOut size={25} />
+              </LogOutButton>
+            </Flex>
             <Link to="/profile">
-              <ImgAvatar src={user.avatarUrl} alt="" />
+              <ImgAvatar width="100px" src={user.avatarUrl} alt="" />
             </Link>
-            <FiLogOut size={25} onClick={() => dispatch(setLogin(!isLogin))} />
-          </div>
+          </Flex>
         )
         : (
-          <div>
+          <Flex flexDirection="row" align="center" justify="center" width="10%">
+            <ThemeButton />
             <Link to="/login">
-              <ImgAvatar src={defaultImg} alt="" />
+              <ImgAvatar width="100px" src={defaultImg} alt="" />
             </Link>
-          </div>
+          </Flex>
         )}
     </Grid>
   );
