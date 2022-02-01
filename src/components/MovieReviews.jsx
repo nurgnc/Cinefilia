@@ -7,7 +7,9 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
-import { fetchReviews, img300, defaultImg } from '../api';
+import { fetchReviews, img300 } from '../api';
+import defaultImg from '../assets/img/defaultImg.jpg';
+
 // css
 import { CardReview, ImgAvatar, CardReviewBody } from '../styles/Card.styled';
 import { Container, Flex } from '../styles/baseStyles';

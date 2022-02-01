@@ -6,7 +6,8 @@ import {
   CardBody,
   GrayText,
 } from '../styles/Detail.styled';
-import { img300, defaultImg } from '../api';
+import { img300 } from '../api';
+import defaultImg from '../assets/img/defaultImg.jpg';
 
 function DetailCard({
   id, img, characterName, originalName,

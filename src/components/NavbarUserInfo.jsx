@@ -12,7 +12,7 @@ import { Grid, Flex } from '../styles/baseStyles';
 import { ImgAvatar } from '../styles/Card.styled';
 import { LogOutButton } from '../styles/Navbar.styled';
 // default img
-import { defaultImg } from '../api';
+import defaultImg from '../assets/img/defaultImg.jpg';
 import { setLogin } from '../store/user';
 
 function NavbarUserInfo() {

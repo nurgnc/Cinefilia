@@ -4,7 +4,6 @@ const base = axios.create({ baseURL: 'https://api.themoviedb.org/3' });
 const apiKey = '?api_key=f6db4a9ce9835b4bdf3f475e4c395064';
 const img300 = 'https://image.tmdb.org/t/p/w300';
 const img500 = 'https://image.tmdb.org/t/p/w500';
-const defaultImg = 'https://st4.depositphotos.com/1156795/20814/v/450/depositphotos_208142514-stock-illustration-profile-placeholder-image-gray-silhouette.jpg';
 
 // const token = '"request_token": "5828121c9863edc4778fa7e25305b8c0645755fa"';
 // http://localhost:3000/approved?request_token=5828121c9863edc4778fa7e25305b8c0645755fa&approved=true
@@ -47,5 +46,4 @@ export {
   apiKey,
   img300,
   img500,
-  defaultImg,
 };
