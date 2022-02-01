@@ -12,7 +12,7 @@ function About() {
             <p>
               This is the API service I use:
               {' '}
-              <a className="text-info" href="https://rickandmortyapi.com/">The Rick and Morty API</a>
+              <a href="https://developers.themoviedb.org/4/getting-started/authorization">The Rick and Morty API</a>
             </p>
             <p>
               This assignment was built with React JS.
@@ -37,10 +37,17 @@ function About() {
             </h6>
             <ul>
               <li>React</li>
+              <li>Redux</li>
+              <li>Redux Persist</li>
               <li>React Router Dom</li>
-              <li>Bootstrap 5</li>
-              <li>Public API</li>
+              <li>React Query</li>
+              <li>Axios</li>
+              <li>TMDB API</li>
+              <li>Styled Components</li>
+              <li>Slick Slider</li>
+              <li>Debounce</li>
               <li>Custom Pagination</li>
+              <li>Eslint Airbnb standarts</li>
             </ul>
           </div>
         </div>

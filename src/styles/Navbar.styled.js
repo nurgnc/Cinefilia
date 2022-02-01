@@ -45,7 +45,7 @@ export const DropDownList = styled.div`
   width: 9rem;
   position: absolute;
   transition: all 0.15s linear;
-  background-color: rgba(255,255,255,.9);
+  background-color: rgba(255,255,255);
   padding: 5px 15px;;
   border-radius: 0 0 5px 5px;
   z-index: 10;
@@ -53,6 +53,15 @@ export const DropDownList = styled.div`
     margin: 0;
     padding: 0;
     list-style: none;
+    & > li {
+      padding: 10px 0;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        color: ${({ theme }) => theme.border};
+        font-weight: 600;
+      }
+    }
   }
   }
 `;
