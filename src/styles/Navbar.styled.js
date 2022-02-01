@@ -19,13 +19,16 @@ export const StyledLink = styled(Link)`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   text-decoration: none;
   color: ${({ theme }) => theme.textColor};
   font-weight: 600;
-  margin-left: 1.5rem;
+  & > img {
+    margin-right: 10px;
+  }
   & > span {
-    margin-left: 5px;
+    font-size: 25px;
+    letter-spacing: 2px;
   }
 `;
 export const Logo = styled.img`

@@ -14,11 +14,11 @@ function ThemeButton() {
     <section>
       {theme === 'dark' ? (
         <ThemeButtons type="button" theme={theme} onClick={() => dispatch(setTheme('light'))}>
-          <BsMoonStars size={20} />
+          <BsMoonStars size={22} />
         </ThemeButtons>
       ) : (
         <ThemeButtons type="button" theme={theme} onClick={() => dispatch(setTheme('dark'))}>
-          <BsFillMoonStarsFill size={20} />
+          <BsFillMoonStarsFill size={22} />
         </ThemeButtons>
       )}
     </section>

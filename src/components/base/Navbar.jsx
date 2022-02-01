@@ -4,6 +4,8 @@ import { MoviesToggle, NavbarUserInfo } from '../index';
 // css
 import { ContainerFluid, Flex } from '../../styles/baseStyles';
 import { Nav, StyledLink } from '../../styles/Navbar.styled';
+// logo
+import logo from '../../assets/img/logo.png';
 
 function Navbar() {
   return (
@@ -11,7 +13,8 @@ function Navbar() {
       <Nav>
         <>
           <StyledLink to="/">
-            CINEFILIA
+            <img src={logo} alt="cinefilia" />
+            <span>CINEFILIA</span>
           </StyledLink>
           <MoviesToggle />
         </>
