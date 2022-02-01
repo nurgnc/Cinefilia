@@ -49,6 +49,7 @@ export const DropDownList = styled.div`
   padding: 5px 15px;;
   border-radius: 0 0 5px 5px;
   z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   & > ul {
     margin: 0;
     padding: 0;
@@ -77,12 +78,14 @@ export const DropDown = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  }
 `;
 
 export const NavLink = styled(Link)`
 color: rgba(255,255,255,.7);
 padding-bottom: 5px;
+&:hover {
+  color: #fff;
+}
 `;
 
 export const ThemeButtons = styled.button`

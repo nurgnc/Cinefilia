@@ -11,10 +11,15 @@ export const Container = styled.div`
   padding: 0.75rem;
   margin: 0 auto;
   min-height: ${(props) => props.height};
+  @media (max-width: 1400px) {
+    width: 1200px;
+
+  }
 `;
 
 export const MarginVertical = styled.div`
   margin: 4rem auto;
+  width: ${(props) => props.width};
 `;
 
 export const Flex = styled.div`

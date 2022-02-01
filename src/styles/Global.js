@@ -14,6 +14,10 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
   }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
   a {
     color: #141E61;
     text-decoration: none;

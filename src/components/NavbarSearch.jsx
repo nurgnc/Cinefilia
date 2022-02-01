@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // query
 import { useQuery } from 'react-query';
 // icons
@@ -22,6 +22,10 @@ function NavbarSearch() {
   } = useQuery(['searchMovie', search], () => fetchSearch(search), {
     select: (data) => data.data.results,
   });
+
+  useEffect(() => {
+    fetchSearch(search);
+  }, [search]);
 
   const updateQuery = (e) => setSearch(e?.target?.value);
 
