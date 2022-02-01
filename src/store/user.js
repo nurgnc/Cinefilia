@@ -24,7 +24,7 @@ function userReducer(user, action) {
 }
 
 function loginReducer(isLogin, action) {
-  const login = isLogin === undefined ? 'false' : isLogin;
+  const login = isLogin === undefined ? false : isLogin;
   switch (action.type) {
     case ISLOGIN:
       return action.payload;
