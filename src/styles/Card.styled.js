@@ -54,8 +54,7 @@ export const StyledCard = styled.div`
   height: 440px;
   flex-direction: column;
   &:hover {
-    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
-    
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);    
     transform: scale(.97);
   }
   &:hover ${CardBody} {

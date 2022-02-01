@@ -12,7 +12,7 @@ export const TableContent = styled.div`
     }
     & > tr {
       & > td {
-        padding: 6px; 
+        padding: 10px 15px; 
         border: 1px solid #ccc; 
         text-align: left; 
       }
@@ -24,7 +24,7 @@ export const TableContent = styled.div`
         background: ${({ theme }) => theme.bg};
         color: white; 
         font-weight: bold; 
-        padding: 6px; 
+        padding: 10px 15px; 
         border: 1px solid #ccc; 
         text-align: left; 
       }

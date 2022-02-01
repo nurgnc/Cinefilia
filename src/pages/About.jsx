@@ -6,7 +6,44 @@ function About() {
   return (
     <Container height="80vh">
       <MarginVertical>
-        <h1>About</h1>
+        <div>
+          <div>
+            <p>This project includes the characters and features of the Rick and Morty series.</p>
+            <p>
+              This is the API service I use:
+              {' '}
+              <a className="text-info" href="https://rickandmortyapi.com/">The Rick and Morty API</a>
+            </p>
+            <p>
+              This assignment was built with React JS.
+              My goal was to create a website using data from a public API service.
+              {' '}
+
+            </p>
+            <h6>
+              Details :
+            </h6>
+            <ul>
+              <li>
+                Find details about the series and API on the main page,
+                and you can search with the character name you want.
+
+              </li>
+              <li>View the characters of the series on the characters page</li>
+              <li>Access character information by clicking on each character.</li>
+            </ul>
+            <h6>
+              I used these technologies :
+            </h6>
+            <ul>
+              <li>React</li>
+              <li>React Router Dom</li>
+              <li>Bootstrap 5</li>
+              <li>Public API</li>
+              <li>Custom Pagination</li>
+            </ul>
+          </div>
+        </div>
       </MarginVertical>
     </Container>
   );
