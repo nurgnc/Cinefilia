@@ -5,12 +5,14 @@
 
 ### :tada: <a href="https://cinefilia.netlify.app/">Live Cinefilia</a> :tada:
 <br/>
+:point_right: <b> Username: nur, Password: nur123456</b>
+<br/> <br/> <br/>
 :dart: On this project, you can locate the movies you're looking for. <br/> <br/>
 :dart: You may add movies you enjoy to your favorites and add movies you watch to your watch list. <br/> <br/>
 :dart: You can sort the films you're looking for by genre, release date, title, and popularity. <br/> <br/>
 :dart: You can examine the summary, crew members, actors, movie comments, and movies recommended to you by going to the specifics of the movie you wish to watch. <br/> <br/>
 
-
+![](src/assets/Cinefilia.gif)
 
 ### Technical Details
 
