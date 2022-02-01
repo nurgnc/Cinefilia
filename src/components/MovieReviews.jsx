@@ -1,7 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+// aos
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
 import { fetchReviews, img300, defaultImg } from '../api';
@@ -29,30 +32,31 @@ function MovieReviews({ movieId }) {
     />
   ));
 
-  console.log('avatar', avatar);
-
   const isAvatar = avatar?.length === 0 ? (
     <ImgAvatar
       width="150px"
       src={defaultImg}
     />
   ) : avatar;
-  console.log('isAvatar', isAvatar);
+
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
   if (Array.isArray(movieReviews) && !movieReviews.length) {
     return (
-      <Container>
+      <Container data-aos="fade-left">
         <LineTitle>Reviews</LineTitle>
         <span>No comments yet...</span>
       </Container>
     );
   }
   return (
-    <Container>
+    <Container data-aos="fade-left">
       <LineTitle>Reviews</LineTitle>
       <Flex flexDirection="row" align="center" justify="space-between">
         {reviews?.map((item, index) => (
-          <CardReview key={index}>
+          <CardReview key={index} height="35vh">
             <Flex flexDirection="row" align="center">
               {isAvatar || (<ImgAvatar width="150px" src={`${img300}${item.author_details.avatar_path}`} alt={item.author} />)}
               <h3>{item.author}</h3>

@@ -11,7 +11,6 @@ export const Container = styled.div`
   padding: 0.75rem;
   margin: 0 auto;
   min-height: ${(props) => props.height};
-
 `;
 
 export const MarginVertical = styled.div`

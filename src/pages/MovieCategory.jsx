@@ -84,7 +84,10 @@ function MovieCategory() {
   }
 
   function handleSortAlph(desc) {
+    console.log('filterData', filterData);
+    console.log('desc', desc);
     let sortedData = getCopy(filterData).sort((a, b) => a.title.localeCompare(b.title));
+    console.log('sortedData', sortedData);
     if (desc) {
       sortedData = sortedData.reverse();
     }

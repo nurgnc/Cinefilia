@@ -1,6 +1,6 @@
 import React from 'react';
 // icons
-import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md';
+import { BsFillMoonStarsFill, BsMoonStars } from 'react-icons/bs';
 // redux
 import { useSelector, useDispatch } from 'react-redux';
 import { setTheme } from '../store/theme';
@@ -14,11 +14,11 @@ function ThemeButton() {
     <section>
       {theme === 'dark' ? (
         <ThemeButtons type="button" theme={theme} onClick={() => dispatch(setTheme('light'))}>
-          <MdOutlineDarkMode size={25} />
+          <BsMoonStars size={25} />
         </ThemeButtons>
       ) : (
         <ThemeButtons type="button" theme={theme} onClick={() => dispatch(setTheme('dark'))}>
-          <MdDarkMode size={25} />
+          <BsFillMoonStarsFill size={25} />
         </ThemeButtons>
       )}
     </section>

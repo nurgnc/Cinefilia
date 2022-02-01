@@ -82,6 +82,7 @@ export const MovieLink = styled(Link)`
 
 export const CardReview = styled.div`
 width: 45%;
+min-height: ${(props) => props.height};
 display: flex;
 flex-direction: column;
 justify-content: space-between;

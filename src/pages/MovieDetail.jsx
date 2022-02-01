@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // router
 import { useParams } from 'react-router-dom';
-// aos
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
 // icons
@@ -33,10 +30,6 @@ function MovieDetail() {
   const randomColor = [...Array(5)].map((item, index) => (
     Math.floor(Math.random(index) * 16777215).toString(16)
   ));
-
-  useEffect(() => {
-    Aos.init({ duration: 2000 });
-  }, []);
 
   return (
     <>
@@ -87,10 +80,10 @@ function MovieDetail() {
       <BgContent bgColor="#F4F6FF">
         <MovieCast movieId={movieId} />
       </BgContent>
-      <MarginVertical data-aos="fade-left">
+      <MarginVertical>
         <MovieReviews movieId={movieId} />
       </MarginVertical>
-      <MarginVertical data-aos="fade-up">
+      <MarginVertical>
         <MovieRecommendations movieId={movieId} />
       </MarginVertical>
     </>

@@ -9,30 +9,49 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-evenly;
+padding: 1em 4em;
 width: ${(props) => props.width};
 background-color: rgba(255,255,255,.7);
 height: 40vh;
 border-radius: 15px;
 box-shadow: rgba(255, 255, 255, 0.2) 0px 10px 60px;
+
 `;
 
 export const UserNameContent = styled.div`
+ & > input:invalid{
+  border-color: red;
+}
 & > input {
   padding: 15px 15px;
   border-radius: 15px;
   border: none;
   width: 30em;
   background: #fff;
+  border: 1px solid;
+  border-color: ${({ theme }) => theme.border};
+}
+& > input:focus-visible {
+  outline: none;
 }
 `;
 export const PasswordContent = styled.div`
+& > input:invalid{
+  border-color: red;
+}
 & > input {
   padding: 15px 15px;
   border-radius: 15px;
   border: none;
   width: 30em;
   background: #fff;
-}`;
+  border: 1px solid;
+  border-color: ${({ theme }) => theme.border};
+}
+& > input:focus-visible {
+  outline: none;
+}
+`;
 export const LogInButton = styled.button`
 display: flex;
 flex-direction: row;

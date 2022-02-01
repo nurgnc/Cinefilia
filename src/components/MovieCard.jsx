@@ -21,9 +21,8 @@ import {
 import { fetchGenres, img300 } from '../api';
 // default img
 import defaultImg from '../assets/img/no-img.jpg';
-import loadingGif from '../assets/img/gif.webp';
 
-function MovieCard({ movieData, isLoading }) {
+function MovieCard({ movieData }) {
   const { data: movieGenres } = useQuery(
     'movieGenres',
     fetchGenres,
@@ -40,8 +39,7 @@ function MovieCard({ movieData, isLoading }) {
     <StyledCard>
       <Link to={`/movies/${movieData?.id}`}>
         <CardImg>
-          {isLoading ? <img src={loadingGif} alt="" />
-            : <img src={noPicture} alt={movieData?.title} />}
+          <img src={noPicture} alt={movieData?.title} />
         </CardImg>
       </Link>
       <CardBody>
