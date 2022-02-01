@@ -12,7 +12,7 @@ import defaultImg from '../assets/img/defaultImg.jpg';
 
 // css
 import { CardReview, ImgAvatar, CardReviewBody } from '../styles/Card.styled';
-import { Container, Flex } from '../styles/baseStyles';
+import { Container, Flex, CenterText } from '../styles/baseStyles';
 import { LineTitle } from '../styles/Detail.styled';
 
 function MovieReviews({ movieId }) {
@@ -50,7 +50,7 @@ function MovieReviews({ movieId }) {
     return (
       <Container data-aos="fade-left">
         <LineTitle>Reviews</LineTitle>
-        <span>No comments yet...</span>
+        <CenterText>No comments yet...</CenterText>
       </Container>
     );
   }
@@ -78,7 +78,7 @@ function MovieReviews({ movieId }) {
 }
 
 MovieReviews.propTypes = {
-  movieId: PropTypes.number,
+  movieId: PropTypes.string,
 
 };
 MovieReviews.defaultProps = {

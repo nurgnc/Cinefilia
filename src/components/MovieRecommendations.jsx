@@ -17,7 +17,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { settingsMainSlider } from './SliderSettings';
 // css
-import { Container } from '../styles/baseStyles';
+import { Container, CenterText } from '../styles/baseStyles';
 import { LineTitle } from '../styles/Detail.styled';
 
 function MovieRecommendations({ movieId }) {
@@ -34,7 +34,7 @@ function MovieRecommendations({ movieId }) {
     return (
       <Container data-aos="fade-up">
         <LineTitle>Reviews</LineTitle>
-        <span>No comments yet...</span>
+        <CenterText>No comments yet...</CenterText>
       </Container>
     );
   }

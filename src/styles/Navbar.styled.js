@@ -72,6 +72,7 @@ border-radius: 70%;
 margin: 0 10px;
 padding: 5px 8px;
 border: none;
+background: #fff;
 cursor: pointer;
 & > svg {
   transform: ${(props) => (props.theme === 'dark' ? 'rotate(270deg)' : 'rotate(0deg)')};
@@ -87,6 +88,7 @@ export const LogOutButton = styled.button`
   padding: 5px 8px;
   border: none;
   cursor: pointer;
+  background: #fff;
   &:hover svg {
     transition: transform .5s ease-in-out;
     transform: scale(1.1);
@@ -98,8 +100,58 @@ export const SearchButton = styled.button`
   padding: 5px 8px;
   border: none;
   cursor: pointer;
+  background: #fff;
     &:hover svg {
       transition: transform .5s ease-in-out;
       transform: scale(1.1);
     }
+`;
+
+export const SearchContent = styled.div`
+width: 300px;
+& > input {
+  width: 300px;
+  padding: 10px 15px;
+  border: none;
+  &:focus-visible {
+    outline: none;
+  }
+}
+`;
+
+export const MovieLink = styled(Link)`
+font-size: 14px;
+color: #686D76;
+margin-left: 8px;
+`;
+
+export const SearchResults = styled.ul`
+position: absolute;
+z-index: 10;
+  width: 330px;
+  height: 200px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+  padding-left: 0;
+  margin: 0;
+  & > li {
+    padding: 0 8px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+      background-color: lightgrey;
+    }
+    &:hover>svg, &:hover ${MovieLink} {
+      color: ${({ theme }) => theme.border};
+      font-weight: 600;
+    }
+    &> svg {
+      color: #686D76;
+    }
+  }
 `;

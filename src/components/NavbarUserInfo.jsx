@@ -25,7 +25,7 @@ function NavbarUserInfo() {
     <Grid>
       {isLogin
         ? (
-          <Flex flexDirection="row" align="center" justify="center" width="10%">
+          <Flex flexDirection="row" align="center" justify="center">
             <Flex flexDirection="row" align="center" justify="center">
               <NavbarSearch />
               <ThemeButton />
@@ -39,7 +39,7 @@ function NavbarUserInfo() {
           </Flex>
         )
         : (
-          <Flex flexDirection="row" align="center" justify="center" width="10%">
+          <Flex flexDirection="row" align="center" justify="center">
             <NavbarSearch />
             <ThemeButton />
             <Link to="/login">

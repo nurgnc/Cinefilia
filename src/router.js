@@ -1,5 +1,5 @@
 import {
-  About, Home, Login, MovieCategory, MovieDetail, Profile, Search, // \n
+  About, Home, Login, MovieCategory, MovieDetail, Profile, Search,
 } from './pages';
 
 const routes = [
