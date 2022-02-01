@@ -71,7 +71,7 @@ export const DropDown = styled.div`
 export const ThemeButtons = styled.button`
 border-radius: 70%;
 margin: 0 10px;
-padding: 5px 8px;
+padding: 8px 10px;
 border: none;
 background: #fff;
 cursor: pointer;

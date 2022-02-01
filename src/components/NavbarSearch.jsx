@@ -22,9 +22,11 @@ function NavbarSearch() {
   } = useQuery(['searchMovie', search], () => fetchSearch(search), {
     select: (data) => data.data.results,
   });
+
   const updateQuery = (e) => setSearch(e?.target?.value);
 
   const debouncedOnChange = debounce(updateQuery, 1000);
+
   return (
     <Flex flexDirection="row" justify="center" align="center" width={collapse ? '360px' : ''} backGround="#fff" radius="15px">
       {collapse && (
