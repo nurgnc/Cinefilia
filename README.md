@@ -6,6 +6,8 @@
 ### :tada: <a href="https://cinefilia.netlify.app/">Live Cinefilia</a> :tada:
 <br/>
 :point_right: <b> Username: nur, Password: nur123456</b>
+<br />
+:point_right: <b> Username: username, Password: password</b>
 <br/> <br/> <br/>
 :dart: On this project, you can locate the movies you're looking for. <br/> <br/>
 :dart: You may add movies you enjoy to your favorites and add movies you watch to your watch list. <br/> <br/>
