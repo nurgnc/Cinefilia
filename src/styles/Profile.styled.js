@@ -8,7 +8,7 @@ export const TableContent = styled.div`
 
   & > tbody{
     tr:nth-of-type(odd) { 
-      background: #eee; 
+      background: #DBE3E5; 
     }
     & > tr {
       & > td {

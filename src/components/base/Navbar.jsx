@@ -1,9 +1,11 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 // components
 import { MoviesToggle, NavbarUserInfo } from '../index';
+import routes from '../../router';
 // css
 import { ContainerFluid, Flex } from '../../styles/baseStyles';
-import { Nav, StyledLink } from '../../styles/Navbar.styled';
+import { Nav, StyledLink, NavLink } from '../../styles/Navbar.styled';
 // logo
 import logo from '../../assets/img/logo.png';
 
@@ -11,17 +13,26 @@ function Navbar() {
   return (
     <ContainerFluid>
       <Nav>
-        <Flex flexDirection="row" align="end" justify="space-around" width="40%">
+        <Flex flexDirection="row" align="end" justify="space-around" width="50%">
           <StyledLink to="/">
             <img src={logo} alt="cinefilia" />
             <span>CINEFILIA</span>
           </StyledLink>
-          <MoviesToggle />
+          <Flex flexDirection="row" align="center" justify="space-evenly" width="50%">
+            <MoviesToggle />
+            {routes
+              .filter((item) => item.isNav)
+              .map((item, index) => (
+                <div key={index}>
+                  <NavLink to={item.path}>
+                    {item.title}
+                  </NavLink>
+                </div>
+              ))}
+          </Flex>
         </Flex>
 
-        <Flex>
-          <NavbarUserInfo />
-        </Flex>
+        <NavbarUserInfo />
       </Nav>
     </ContainerFluid>
   );

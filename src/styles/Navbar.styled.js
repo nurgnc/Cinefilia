@@ -41,8 +41,8 @@ export const Logo = styled.img`
 
 export const DropDownList = styled.div`
   display: ${(props) => props.display};
-  top: 4.4rem;
-  width: 8rem;
+  top: 4.1em;
+  width: 9rem;
   position: absolute;
   transition: all 0.15s linear;
   background-color: rgba(255,255,255,.9);
@@ -58,7 +58,7 @@ export const DropDownList = styled.div`
 `;
 
 export const DropDown = styled.div`
-  width: 8rem;
+  width: 9rem;
   background-color: rgba(255,255,255,.7);
   padding: 5px 15px;;
   border-radius: 5px 5px 0 0;
@@ -69,6 +69,11 @@ export const DropDown = styled.div`
   align-items: center;
   justify-content: space-between;
   }
+`;
+
+export const NavLink = styled(Link)`
+color: rgba(255,255,255,.7);
+padding-bottom: 5px;
 `;
 
 export const ThemeButtons = styled.button`
