@@ -13,7 +13,7 @@ const themeReducer = (theme, action) => {
     case THEME:
       return action.payload;
     default:
-      return theme === undefined ? 'dark' : theme;
+      return theme === undefined ? 'light' : theme;
   }
 };
 

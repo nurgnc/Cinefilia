@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 // routes data
 import routes from './router';
 import themes from './styles/themes';
+import PrivateRoute from './PrivateRoute';
 import { Navbar, Footer } from './components/base';
 // css
 import GlobalStyles from './styles/Global';
@@ -19,9 +20,11 @@ function App() {
       <GlobalStyles />
       <Navbar />
       <Routes>
-        {routes.map((item, index) => (
-          <Route key={index} path={item.path} element={<item.element />} />
-        ))}
+        <Route element={<PrivateRoute />}>
+          {routes.map((item, index) => (
+            <Route key={index} path={item.path} element={<item.element />} />
+          ))}
+        </Route>
       </Routes>
       <Footer />
     </ThemeProvider>
