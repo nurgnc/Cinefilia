@@ -21,9 +21,10 @@ function MovieReviews({ movieId }) {
   });
 
   const reviews = movieReviews?.slice(0, 2);
-  const avatar = reviews?.slice(0, 1)?.filter((item) => item.author_details.avatar_path?.includes('gravatar')).map((img) => (
+  const avatar = reviews?.slice(0, 1)?.filter((item) => item.author_details.avatar_path?.includes('gravatar')).map((img, index) => (
     // eslint-disable-next-line max-len
     <ImgAvatar
+      key={index}
       width="150px"
       src={img.author_details.avatar_path
         // eslint-disable-next-line no-unsafe-optional-chaining
