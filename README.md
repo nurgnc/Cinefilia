@@ -12,7 +12,7 @@
 :dart: You can sort the films you're looking for by genre, release date, title, and popularity. <br/> <br/>
 :dart: You can examine the summary, crew members, actors, movie comments, and movies recommended to you by going to the specifics of the movie you wish to watch. <br/> <br/>
 
-![](src/assets/Cinefilia.gif)
+
 
 ### Technical Details
 
