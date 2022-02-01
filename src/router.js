@@ -34,7 +34,7 @@ const routes = [
     title: 'Profile',
     path: '/profile',
     element: Profile,
-    isNav: false,
+    isNav: true,
   },
   {
     title: 'Search',
