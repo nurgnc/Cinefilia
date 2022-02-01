@@ -20,9 +20,9 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function handleLogin() {
-    const user = users.filter((item) => item.username === name)[0];
-    if (password === user.password) {
+  function handleLogin(username, userPassword) {
+    const user = users.filter((item) => item.username === username)[0];
+    if (userPassword === user.password) {
       dispatch(setUser(user));
       dispatch(setLogin(!isLogin));
       navigate('/');
@@ -61,7 +61,7 @@ function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </PasswordContent>
-              <LogInButton type="submit" onClick={() => handleLogin}>
+              <LogInButton type="submit" onClick={() => handleLogin(name, password)}>
                 <AiOutlineLogin size={25} />
                 Submit
               </LogInButton>
