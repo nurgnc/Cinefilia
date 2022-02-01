@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 // component
 import LikeAndBookmarkButton from './LikeAndBookmarkButton';
 // css
-import { Flex } from '../styles/baseStyles';
+import { Flex, CenterText } from '../styles/baseStyles';
 import { FilterContent, TableContent } from '../styles/Profile.styled';
 
 function ProfileTable() {
@@ -32,6 +32,13 @@ function ProfileTable() {
     }
   }, [select, likes, bookmarks]);
 
+  if (Array.isArray(filterData) && !filterData.length) {
+    return (
+      <TableContent>
+        <CenterText>Any favorites or seen list yet...</CenterText>
+      </TableContent>
+    );
+  }
   return (
     <div>
       <FilterContent>
