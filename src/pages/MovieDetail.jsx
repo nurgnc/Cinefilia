@@ -77,7 +77,7 @@ function MovieDetail() {
           </Flex>
         </MarginVertical>
       </Container>
-      <BgContent bgColor="#F4F6FF">
+      <BgContent>
         <MovieCast movieId={movieId} />
       </BgContent>
       <MarginVertical>

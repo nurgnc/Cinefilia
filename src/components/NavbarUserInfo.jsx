@@ -40,6 +40,7 @@ function NavbarUserInfo() {
         )
         : (
           <Flex flexDirection="row" align="center" justify="center">
+            <NavbarSearch />
             <ThemeButton />
             <Link to="/login">
               <ImgAvatar width="100px" src={defaultImg} alt="" />

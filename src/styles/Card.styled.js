@@ -81,16 +81,16 @@ export const MovieLink = styled(Link)`
 `;
 
 export const CardReview = styled.div`
-width: 45%;
-min-height: ${(props) => props.height};
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+  width: 45%;
+  min-height: ${(props) => props.height};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
-background-color: #fff;
+  background-color: rgba(255,255,255,.3);
   border-radius: 15px;
-  border: 1px solid #9D9D9D;
   margin: 20px auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `;
 
 export const CardReviewBody = styled.div`

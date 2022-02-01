@@ -11,13 +11,13 @@ function Navbar() {
   return (
     <ContainerFluid>
       <Nav>
-        <>
+        <Flex flexDirection="row" align="end" justify="space-around" width="40%">
           <StyledLink to="/">
             <img src={logo} alt="cinefilia" />
             <span>CINEFILIA</span>
           </StyledLink>
           <MoviesToggle />
-        </>
+        </Flex>
 
         <Flex>
           <NavbarUserInfo />

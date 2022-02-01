@@ -16,7 +16,7 @@ const routes = [
     title: 'Category',
     element: MovieCategory,
     path: '/movie/:movieCat',
-    isNav: true,
+    isNav: false,
   },
   {
     title: 'Movie Detail',
@@ -28,19 +28,19 @@ const routes = [
     title: 'Login',
     element: Login,
     path: '/login',
-    isNav: true,
+    isNav: false,
   },
   {
     title: 'Profile',
     path: '/profile',
     element: Profile,
-    isNav: true,
+    isNav: false,
   },
   {
     title: 'Search',
     path: '/search',
     element: Search,
-    isNav: true,
+    isNav: false,
   },
 ];
 
