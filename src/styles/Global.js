@@ -31,15 +31,15 @@ const GlobalStyles = createGlobalStyle`
   .slick-dots {
     bottom: -40px;    
   }
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     .slick-dots {
       display: none !important;
     }
     .slick-prev {
-      left: 60px;
+      left: -5px;
     }
     .slick-next {
-      right: 60px;
+      right: -5px;
     }
   }
   .slick-slide > div {

@@ -22,6 +22,9 @@ export const CardBody = styled.div`
   }
 `;
 
+export const CardOverview = styled.p`
+  display: ${(props) => props.responsive};
+`;
 export const CardImg = styled.div`
   flex: 1;
   display: flex;
@@ -80,7 +83,7 @@ export const MovieLink = styled(Link)`
 `;
 
 export const CardReview = styled.div`
-  width: 45%;
+  width: 100%;
   min-height: ${(props) => props.height};
   display: flex;
   flex-direction: column;
@@ -88,7 +91,7 @@ export const CardReview = styled.div`
   align-items: flex-start;
   background-color: rgba(255,255,255,.3);
   border-radius: 15px;
-  margin: 20px auto;
+  margin: 20px 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `;
 

@@ -40,6 +40,9 @@ export const Flex = styled.div`
   background: ${(props) => props.backGround};
   border-radius: ${(props) => props.radius};
   flex-wrap: ${(props) => props.wrap};
+  & > svg {
+    margin-right: 10px;
+  }
   & > ul {
     flex: 1;
   }
@@ -57,9 +60,13 @@ export const Grid = styled.div`
   grid-gap: 30px;
   @media (max-width: 768px) {
     display: inline-grid;
+    grid-template-columns: repeat(2, 5fr);
+    grid-gap: 15px;
+  }
+  @media (max-width: 620px) {
+    display: inline-grid;
     grid-template-columns: repeat(1, 5fr);
     grid-gap: 15px;
-    width: 100%;
   }
 `;
 

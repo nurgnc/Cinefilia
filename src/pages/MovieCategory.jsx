@@ -182,7 +182,7 @@ function MovieCategory() {
 
             </FilterButton>
           </Width>
-          <Flex flexDirection="column" align="center" justify="center">
+          <Flex flexDirection="column" align="center" justify="center" width="100%">
             <Grid col={3}>
               {movieData?.map((item, index) => (
                 <MovieCard

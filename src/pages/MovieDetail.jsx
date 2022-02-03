@@ -35,20 +35,20 @@ function MovieDetail() {
     <>
       <Container>
         <MarginVertical>
-          <Flex flexDirection="row" align="start" justify="space-around">
+          <Flex flexDirection="row" align="start" justify="space-around" wrap="wrap">
             <div>
               <Poster src={`${img500}${movieData?.poster_path}`} alt="" />
             </div>
-            <Flex flexDirection="column" align="start" justify="space-between" width="50%">
+            <Flex flexDirection="column" align="start" justify="space-between" width="min-content" resAlign="center" resJustify="center">
               <h1>{movieData?.title}</h1>
               <Flex flexDirection="row" align="center" justify="space-between" width="35%">
-                <Flex flexDirection="row" align="center" justify="space-between" width="50%">
+                <Flex flexDirection="row" align="center" justify="space-between" width="auto">
                   <BsFillCalendar2CheckFill color="#686D76" />
                   <GrayText>
                     {movieData?.release_date}
                   </GrayText>
                 </Flex>
-                <Flex flexDirection="row" align="center" justify="space-between" width="20%">
+                <Flex flexDirection="row" align="center" justify="space-between" width="auto">
                   <BiTimeFive size={20} color="#686D76" />
                   <GrayText>
                     {movieData?.runtime}
@@ -69,10 +69,9 @@ function MovieDetail() {
                   </blockquote>
                 </OverView>
               </div>
-              <div>
+              <Flex flexDirection="row" justify="center" align="center" width="90%">
                 <MovieCrew randomColor={randomColor} movieId={movieId} />
-              </div>
-              <div />
+              </Flex>
             </Flex>
           </Flex>
         </MarginVertical>

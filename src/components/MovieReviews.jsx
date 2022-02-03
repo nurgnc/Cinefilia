@@ -1,10 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-// aos
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
 import { fetchReviews, img300 } from '../api';
@@ -42,10 +39,6 @@ function MovieReviews({ movieId }) {
     />
   ) : avatar;
 
-  useEffect(() => {
-    Aos.init({ duration: 2000 });
-  }, []);
-
   if (Array.isArray(movieReviews) && !movieReviews.length) {
     return (
       <Container data-aos="fade-left">
@@ -55,9 +48,9 @@ function MovieReviews({ movieId }) {
     );
   }
   return (
-    <Container data-aos="fade-left">
+    <Container>
       <LineTitle>Reviews</LineTitle>
-      <Flex flexDirection="row" align="center" justify="space-between">
+      <Flex flexDirection="row" resFlexDirection="column" align="center" justify="space-between">
         {reviews?.map((item, index) => (
           <CardReview key={index} height="35vh">
             <Flex flexDirection="row" align="center">

@@ -1,11 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 // slider package
 import Slider from 'react-slick';
-// aos
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
 import { fetchCredit } from '../api';
@@ -26,11 +23,8 @@ function MovieCast({ movieId }) {
     select: (data) => data.data.cast,
   });
 
-  useEffect(() => {
-    Aos.init({ duration: 2000 });
-  }, []);
   return (
-    <Container data-aos="fade-right">
+    <Container>
       <LineTitle>
         Actors
       </LineTitle>

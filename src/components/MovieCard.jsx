@@ -16,6 +16,7 @@ import {
   MovieLink,
   CardImg,
   CardBody,
+  CardOverview,
   ReleaseDate,
 } from '../styles/Card.styled';
 import { fetchGenres, img300 } from '../api';
@@ -71,10 +72,10 @@ function MovieCard({ movieData }) {
                 {item.name}
               </span>
             ))}
-            <p>
+            <CardOverview responsive="none">
               {movieData.overview && movieData.overview.substring(0, 120)}
               ...
-            </p>
+            </CardOverview>
           </Link>
         </div>
       </CardBody>

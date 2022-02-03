@@ -1,10 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-// aos
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 // slider package
 import Slider from 'react-slick';
 // query
@@ -27,19 +24,16 @@ function MovieRecommendations({ movieId }) {
     select: (data) => data.data.results,
   });
 
-  useEffect(() => {
-    Aos.init({ duration: 2000 });
-  }, []);
   if (Array.isArray(movieRecommendations) && !movieRecommendations.length) {
     return (
-      <Container data-aos="fade-up">
+      <Container>
         <LineTitle>Reviews</LineTitle>
         <CenterText>No comments yet...</CenterText>
       </Container>
     );
   }
   return (
-    <Container data-aos="fade-up">
+    <Container>
       <LineTitle>Recommendations</LineTitle>
       <Slider {...settingsMainSlider}>
         {

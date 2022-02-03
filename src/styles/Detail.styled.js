@@ -46,6 +46,7 @@ background-color: ${(props) => props.randomBg};
 border: none;
 padding: 10px 15px;
 margin-right: 15px;
+margin-bottom: 15px;
 border-radius: 10px;
 font-size: 16px;
 color: #fff;
@@ -95,6 +96,10 @@ color: #595260;
     position: relative;
     margin: 0;
     padding: 50px 100px 40px 40px;
+    @media (max-width: 768px) {
+      width: 20em;
+      padding: 50px 30px 30px 30px;
+    }
   }
   & > blockquote::before {
     content: open-quote;
