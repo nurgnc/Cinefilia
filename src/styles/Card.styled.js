@@ -23,7 +23,9 @@ export const CardBody = styled.div`
 `;
 
 export const CardOverview = styled.p`
+@media (max-width: 768px) {
   display: ${(props) => props.responsive};
+}
 `;
 export const CardImg = styled.div`
   flex: 1;
