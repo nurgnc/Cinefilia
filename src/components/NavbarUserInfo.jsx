@@ -25,8 +25,8 @@ function NavbarUserInfo() {
     <Grid>
       {isLogin
         ? (
-          <Flex flexDirection="row" align="center" justify="center">
-            <Flex flexDirection="row" align="center" justify="center">
+          <Flex flexDirection="row" resFlexDirection="column-reverse" align="center" justify="center">
+            <Flex flexDirection="row" resFlexDirection="row" align="center" justify="center">
               <NavbarSearch />
               <ThemeButton />
               <LogOutButton onClick={() => dispatch(setLogin(!isLogin))}>

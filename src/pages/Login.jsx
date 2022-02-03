@@ -32,8 +32,8 @@ function Login() {
   return (
     <BgDark>
       <Container>
-        <Flex flexDirection="row" justiy="space-evenly" align="center" height="80vh">
-          <BgContent width="50%">
+        <Flex flexDirection="row" justiy="space-evenly" resJustify="center" align="center" height="90vh" wrap="wrap">
+          <BgContent width="50%" resWidth="70%">
             <img src={login} alt="" />
           </BgContent>
           <form action="">

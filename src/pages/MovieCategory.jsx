@@ -123,8 +123,8 @@ function MovieCategory() {
   return (
     <Container>
       <MarginVertical>
-        <Flex flexDirection="row" justify="space-between" align="start">
-          <Width value="30%">
+        <Flex flexDirection="row" resFlexDirection="column" justify="space-between" align="start">
+          <Width value="40%">
             <SortContent>
               <h3>Sort By:</h3>
               <select onChange={(e) => setSelect(e.target.value)}>

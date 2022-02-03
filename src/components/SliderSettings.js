@@ -30,6 +30,7 @@ const settingsMainSlider = {
         slidesToShow: 2,
         slidesToScroll: 3,
         initialSlide: 1,
+        dots: false,
       },
     },
     {
@@ -38,6 +39,7 @@ const settingsMainSlider = {
         slidesToShow: 2,
         slidesToScroll: 2,
         initialSlide: 1,
+        dots: false,
       },
     },
     {
@@ -80,6 +82,7 @@ const settingsActorSlider = {
         slidesToShow: 2,
         slidesToScroll: 3,
         initialSlide: 1,
+        dots: false,
       },
     },
     {
@@ -88,6 +91,7 @@ const settingsActorSlider = {
         slidesToShow: 2,
         slidesToScroll: 2,
         initialSlide: 1,
+        dots: false,
       },
     },
     {
@@ -95,6 +99,7 @@ const settingsActorSlider = {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
+        dots: false,
       },
     },
   ],

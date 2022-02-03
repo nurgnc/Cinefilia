@@ -15,6 +15,13 @@ background-color: rgba(255,255,255,.7);
 height: 40vh;
 border-radius: 15px;
 box-shadow: rgba(255, 255, 255, 0.2) 0px 10px 60px;
+@media (max-width: 810px) {
+  padding: 1em 3em;
+}
+
+@media (max-width: 420px) {
+  padding: 1em 2em;
+}
 
 `;
 
@@ -30,6 +37,9 @@ export const UserNameContent = styled.div`
   background: #fff;
   border: 1px solid;
   border-color: ${({ theme }) => theme.border};
+  @media (max-width: 768px) {
+    width: 18em;
+  }
 }
 & > input:focus-visible {
   outline: none;
@@ -47,6 +57,9 @@ export const PasswordContent = styled.div`
   background: #fff;
   border: 1px solid;
   border-color: ${({ theme }) => theme.border};
+  @media (max-width: 768px) {
+    width: 18em;
+  }
 }
 & > input:focus-visible {
   outline: none;

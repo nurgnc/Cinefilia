@@ -29,7 +29,18 @@ const GlobalStyles = createGlobalStyle`
     font-size: 25px;
   }
   .slick-dots {
-    bottom: -40px;
+    bottom: -40px;    
+  }
+  @media (max-width: 768px) {
+    .slick-dots {
+      display: none !important;
+    }
+    .slick-prev {
+      left: 60px;
+    }
+    .slick-next {
+      right: 60px;
+    }
   }
   .slick-slide > div {
     display: flex;

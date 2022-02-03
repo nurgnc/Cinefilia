@@ -39,23 +39,27 @@ export const Flex = styled.div`
   padding-bottom: ${(props) => props.pb};
   background: ${(props) => props.backGround};
   border-radius: ${(props) => props.radius};
+  flex-wrap: ${(props) => props.wrap};
   & > ul {
     flex: 1;
   }
   @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: ${(props) => props.resFlexDirection};
+    align-items: ${(props) => props.resAlign};
+    justify-content: ${(props) => props.resJustify};
+    flex-wrap: wrap;
   }
 `;
 
 export const Grid = styled.div`
-  display: grid;
+  display: inline-grid;
   grid-template-columns: repeat(${(props) => props.col}, 5fr);
   grid-gap: 30px;
   @media (max-width: 768px) {
+    display: inline-grid;
     grid-template-columns: repeat(1, 5fr);
     grid-gap: 15px;
-    text-align: center;
+    width: 100%;
   }
 `;
 

@@ -18,6 +18,7 @@ function MoviesToggle() {
       justify="center"
       onMouseLeave={() => setToggle(!toggle)}
       onMouseEnter={() => setToggle(!toggle)}
+      onClick={() => setToggle(!toggle)}
     >
       <DropDown>
         <span>Movies</span>
