@@ -15,6 +15,7 @@
 :dart: You can examine the summary, crew members, actors, movie comments, and movies recommended to you by going to the specifics of the movie you wish to watch. <br/> <br/>
 
 
+![GIF](src/assets/Cinefilia.gif)
 
 ### Technical Details
 
@@ -24,7 +25,7 @@
 :anchor: React query and axios are used to pull data. <br /> <br />
 :anchor: To use the application, you must be logged in. <br /> <br />
 :anchor: On the site, you can see what`s popular and what`s new. <br /> <br />
-:anchor: Both the homepage and the navbar have a search bar where you may find the video you`re looking for. <br /> <br />
+:anchor: Both the homepage and the navbar have a search bar where you may find the movie you`re looking for. <br /> <br />
 :anchor: The navbar can also be used to reach popular and top-rated categories. <br /> <br />
 :anchor: The movies on the category page can be sorted and filtered in a variety of ways. <br /> <br />
 :anchor: The movie overview, crew, actors, comments, and suggestions are presented on the detail page when each movie is clicked. <br /> <br />
