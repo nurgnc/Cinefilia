@@ -16,7 +16,7 @@ import {
 } from '../styles/SortFilter.styled';
 import { GrayText } from '../styles/Detail.styled';
 // component
-import { MovieCard } from '../components';
+import { MovieCard, ScrollToTop } from '../components';
 
 function MovieCategory() {
   const [page, setPage] = useState(1);
@@ -47,7 +47,7 @@ function MovieCategory() {
   const fetchLoadMore = async (pageNumber) => await base.get(`/movie/${movieCat}${apiKey}&page=${pageNumber}&with_genres=${genreId}`).then((response) => {
     const movies = response.data.results;
     const subData = [];
-    subData.push(...filterData);
+    subData.push(...movieData);
     subData.push(...movies);
     setMovieData(subData);
   });
@@ -75,6 +75,8 @@ function MovieCategory() {
 
   useEffect(() => {
     fetchLoadMore(page);
+    console.log(page);
+    console.log(movieData);
   }, [page]);
 
   // sort functions
@@ -206,6 +208,7 @@ function MovieCategory() {
             </LoadButton>
           </Flex>
         </Flex>
+        <ScrollToTop />
       </MarginVertical>
     </Container>
   );

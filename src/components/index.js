@@ -12,6 +12,7 @@ import NavbarSearch from './NavbarSearch';
 import NavbarUserInfo from './NavbarUserInfo';
 import ProfileTable from './ProfileTable';
 import SearchPagination from './SearchPagination';
+import ScrollToTop from './ScrollToTop';
 import TrendingWidget from './TrendingWidget';
 import ThemeButton from './ThemeButton';
 
@@ -30,6 +31,7 @@ export {
   NavbarUserInfo,
   ProfileTable,
   SearchPagination,
+  ScrollToTop,
   TrendingWidget,
   ThemeButton,
 };
