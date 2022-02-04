@@ -96,7 +96,11 @@ color: #595260;
     position: relative;
     margin: 0;
     padding: 50px 100px 40px 40px;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
+      width: 30em;
+      padding: 50px 30px 30px 30px;
+    }
+    @media (max-width: 860px) {
       width: 20em;
       padding: 50px 30px 30px 30px;
     }

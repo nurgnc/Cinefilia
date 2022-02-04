@@ -80,7 +80,7 @@ const settingsActorSlider = {
       breakpoint: 930,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 3,
+        slidesToScroll: 2,
         initialSlide: 1,
         dots: false,
       },

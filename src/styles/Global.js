@@ -42,6 +42,14 @@ const GlobalStyles = createGlobalStyle`
       right: -5px;
     }
   }
+  @media (max-width: 800px) {
+    .slick-prev {
+      left: 40px;
+    }
+    .slick-next {
+      right: 40px;
+    }
+  }
   .slick-slide > div {
     display: flex;
     flex-direction: column;

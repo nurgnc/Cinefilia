@@ -61,7 +61,7 @@ function TrendingWidget() {
           </TimeButton>
         </TimeButtons>
       </TrendingContent>
-      <div data-aos="fade-left">
+      <div data-aos="fade-up">
         <Slider {...settingsMainSlider}>
           {trendingMovie?.map((item, index) => (
             <MovieCard

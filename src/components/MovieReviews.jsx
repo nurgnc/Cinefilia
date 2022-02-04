@@ -41,14 +41,14 @@ function MovieReviews({ movieId }) {
 
   if (Array.isArray(movieReviews) && !movieReviews.length) {
     return (
-      <Container data-aos="fade-left">
+      <Container data-aos="fade-up">
         <LineTitle>Reviews</LineTitle>
         <CenterText>No comments yet...</CenterText>
       </Container>
     );
   }
   return (
-    <Container>
+    <Container data-aos="fade-up">
       <LineTitle>Reviews</LineTitle>
       <Flex flexDirection="row" resFlexDirection="column" align="center" justify="space-between">
         {reviews?.map((item, index) => (

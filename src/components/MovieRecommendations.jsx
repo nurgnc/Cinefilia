@@ -1,9 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // slider package
 import Slider from 'react-slick';
+// aos
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 // query
 import { useQuery } from 'react-query';
 import { fetchRecommendations } from '../api';
@@ -24,16 +27,20 @@ function MovieRecommendations({ movieId }) {
     select: (data) => data.data.results,
   });
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   if (Array.isArray(movieRecommendations) && !movieRecommendations.length) {
     return (
-      <Container>
+      <Container data-aos="fade-up">
         <LineTitle>Reviews</LineTitle>
         <CenterText>No comments yet...</CenterText>
       </Container>
     );
   }
   return (
-    <Container>
+    <Container data-aos="fade-up">
       <LineTitle>Recommendations</LineTitle>
       <Slider {...settingsMainSlider}>
         {
@@ -47,7 +54,7 @@ function MovieRecommendations({ movieId }) {
 }
 
 MovieRecommendations.propTypes = {
-  movieId: PropTypes.number,
+  movieId: PropTypes.string,
 
 };
 MovieRecommendations.defaultProps = {

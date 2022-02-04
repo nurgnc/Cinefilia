@@ -15,7 +15,7 @@ export const Nav = styled.nav`
 `;
 
 export const StyledLink = styled(Link)`
-  width: 20%;
+  // width: 20%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -29,12 +29,16 @@ export const StyledLink = styled(Link)`
   & > span {
     font-size: 25px;
     letter-spacing: 2px;
+    @media (max-width: 768px) {
+      display: ${(props) => props.responsive};
+    }
+
   }
 `;
 export const Logo = styled.img`
   width: 10rem;
   height: auto;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: 768px) {
     margin-bottom: 40px;
   }
 `;

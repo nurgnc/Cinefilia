@@ -13,10 +13,10 @@ function Navbar() {
   return (
     <ContainerFluid>
       <Nav>
-        <Flex flexDirection="row" resFlexDirection="column" resAlign="start" align="end" justify="space-around" width="100%">
+        <Flex flexDirection="row" resFlexDirection="column" resAlign="start" align="end" justify="space-around" width="60%">
           <StyledLink to="/">
             <img src={logo} alt="cinefilia" />
-            <span>CINEFILIA</span>
+            <span responsive="none">CINEFILIA</span>
           </StyledLink>
           <Flex flexDirection="row" align="center" justify="space-evenly" width="50%">
             <MoviesToggle />

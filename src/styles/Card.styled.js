@@ -58,6 +58,8 @@ export const StyledCard = styled.div`
   max-width: 300px;
   height: 440px;
   flex-direction: column;
+-webkit-transform : translate3d (0, 0, 0);
+-webkit-backface-visibility: hidden;
   &:hover {
     transition: all .5s cubic-bezier(.8,.5,.2,1.4);    
     transform: scale(.97);
@@ -72,8 +74,12 @@ export const StyledCard = styled.div`
     transform: scale(1.6) rotate(20deg);
     filter: blur(2px);
   }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: 768px) {
     flex-direction: column;
+    &:hover {
+      transition: none;
+      transform: none;
+    }
   }
 `;
 

@@ -10,7 +10,7 @@ import { fetchSearch } from '../api';
 // components
 import SearchPagination from '../components/SearchPagination';
 // css
-import { Grid, MarginVertical } from '../styles/baseStyles';
+import { Grid, MarginVertical, Flex } from '../styles/baseStyles';
 import MovieCard from '../components/MovieCard';
 
 function Search({ search }) {
@@ -37,19 +37,21 @@ function Search({ search }) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <MarginVertical data-aos="fade-up">
-      <Grid col={4}>
-        {
-          currentMovies?.map((item, index) => (
-            <MovieCard key={index} movieData={item} />
-          ))
-        }
-      </Grid>
-      <SearchPagination
-        moviesPerPage={moviesPerPage}
-        totalMovies={totalMovies}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
+      <Flex flexDirection="column" align="center" justify="center">
+        <Grid col={4}>
+          {
+            currentMovies?.map((item, index) => (
+              <MovieCard key={index} movieData={item} />
+            ))
+          }
+        </Grid>
+        <SearchPagination
+          moviesPerPage={moviesPerPage}
+          totalMovies={totalMovies}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+      </Flex>
     </MarginVertical>
   );
 }

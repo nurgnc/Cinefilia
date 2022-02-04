@@ -8,7 +8,7 @@ import { AiOutlineLogout } from 'react-icons/ai';
 import ThemeButton from './ThemeButton';
 import NavbarSearch from './NavbarSearch';
 // css
-import { Grid, Flex } from '../styles/baseStyles';
+import { Flex } from '../styles/baseStyles';
 import { ImgAvatar } from '../styles/Card.styled';
 import { LogOutButton } from '../styles/Navbar.styled';
 // default img
@@ -22,7 +22,7 @@ function NavbarUserInfo() {
   } = useSelector((state) => state);
 
   return (
-    <Grid>
+    <div>
       {isLogin
         ? (
           <Flex flexDirection="row" resFlexDirection="column-reverse" align="center" justify="center">
@@ -47,7 +47,7 @@ function NavbarUserInfo() {
             </Link>
           </Flex>
         )}
-    </Grid>
+    </div>
   );
 }
 
