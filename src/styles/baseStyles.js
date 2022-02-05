@@ -46,7 +46,7 @@ export const Flex = styled.div`
   & > ul {
     flex: 1;
   }
-  @media (max-width: 1024px) {
+  @media (max-width: 1300px) {
     flex-direction: ${(props) => props.resFlexDirection};
     align-items: ${(props) => props.resAlign};
     justify-content: ${(props) => props.resJustify};
